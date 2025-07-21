@@ -18,7 +18,7 @@
     <md-content>
       <h1>Cards</h1>
       <el-row :gutter="32">
-        <el-col :xs="12" :sm="12" :lg="8">
+        <el-col :xs="24" :sm="8" :lg="8">
           <md-card md-with-hover>
             <md-ripple>
               <md-card-header>
@@ -36,7 +36,7 @@
             </md-ripple>
           </md-card>
         </el-col>
-        <el-col :xs="12" :sm="12" :lg="8">
+        <el-col :xs="24" :sm="8" :lg="8">
           <md-card md-with-hover class="md-primary">
             <md-ripple>
               <md-card-header>
@@ -54,7 +54,7 @@
             </md-ripple>
           </md-card>
         </el-col>
-        <el-col :xs="12" :sm="12" :lg="8">
+        <el-col :xs="24" :sm="8" :lg="8">
           <md-card md-with-hover class="md-accent">
             <md-ripple>
               <md-card-header>
@@ -78,7 +78,7 @@
 
     <md-content>
       <el-row :gutter="32">
-        <el-col :xs="12" :sm="12" :lg="8">
+        <el-col :xs="24" :sm="6" :lg="8">
           <md-list>
             <md-list-item>
               <md-icon>move_to_inbox</md-icon>
@@ -114,7 +114,7 @@
             </md-list-item>
           </md-list>
         </el-col>
-        <el-col :xs="12" :sm="12" :lg="16">
+        <el-col :xs="24" :sm="18" :lg="16">
           <md-table v-model="users" md-sort="name" md-sort-order="asc" md-card md-fixed-header>
             <md-table-toolbar>
               <h1 class="md-title">Users</h1>
