@@ -34,13 +34,19 @@ export const constantRouterMap = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/demo',
     children: [
+      {
+        path: 'demo',
+        component: (resolve) => require(['@/views/demo'], resolve),
+        name: 'Demo',
+        meta: { title: 'Demo', icon: 'index', affix: true, noCache: true }
+      },
       {
         path: 'dashboard',
         component: (resolve) => require(['@/views/home'], resolve),
         name: 'Dashboard',
-        meta: { title: '首页', icon: 'index', affix: true, noCache: true }
+        meta: { title: '仪表盘', icon: 'index', affix: true, noCache: true }
       }
     ]
   },
