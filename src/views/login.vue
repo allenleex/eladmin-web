@@ -178,12 +178,13 @@ export default {
   .title {
     margin: 0 auto 30px auto;
     text-align: center;
-    color: #707070;
+    color: #222222;
   }
 
   .login-form {
     border-radius: 6px;
     background: #ffffff;
+    opacity: 1.0;
     width: 385px;
     padding: 25px 25px 5px 25px;
     .el-input {
