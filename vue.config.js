@@ -143,5 +143,17 @@ module.exports = {
   transpileDependencies: [
     'vue-echarts',
     'resize-detector'
-  ]
+  ],
+  css: {
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          javascriptEnabled: true, // 核心修复项[6,9,10](@ref)
+          modifyVars: { 
+            '@primary-color': '#1890ff' // 可选：自定义主题变量
+          }
+        }
+      }
+    }
+  }
 }

@@ -38,7 +38,7 @@ export const constantRouterMap = [
     children: [
       {
         path: 'demo',
-        component: (resolve) => require(['@/views/demo'], resolve),
+        component: (resolve) => require(['@/views/demo/demo'], resolve),
         name: 'Demo',
         meta: { title: 'Demo', icon: 'list', affix: true, noCache: true }
       },

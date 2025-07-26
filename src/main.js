@@ -16,8 +16,6 @@ import './assets/styles/element-variables.scss'
 
 // global css
 import './assets/styles/index.scss'
-// global css
-import './assets/styles/material-custom.scss'
 
 import App from './App'
 import store from './store'
@@ -26,10 +24,19 @@ import router from './router/routers'
 import './assets/icons' // icon
 import './router/index' // permission control
 
+// iView
+import iView from 'iview'
+Vue.use(iView)
+
+// eCharts
+import * as echarts from 'echarts'
+Vue.use(echarts)
+
 // Material UI
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
+import './assets/styles/material-custom.scss' // custom css
 Vue.use(VueMaterial)
 
 Vue.use(checkPer)
