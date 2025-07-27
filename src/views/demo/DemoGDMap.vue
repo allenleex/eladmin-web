@@ -18,8 +18,9 @@ export default {
         backgroundColor: 'transparent',
         tooltip: {
           trigger: 'item',
+          fontSize: 10,
           formatter: function(params) {
-            return `${params.name}: ${params.value || 0}`
+            return `${params.name}市闲置设备: ${params.value || 0}`
           }
         },
         visualMap: {
@@ -71,14 +72,11 @@ export default {
             color: '#ffffff'
           },
           itemStyle: {
-            areaColor: '#2a5caa',
+            areaColor: '#4CC9F0',
             borderColor: 'rgba(0,0,0,0.5)',
             borderWidth: 1
           },
           emphasis: {
-            itemStyle: {
-              areaColor: '#3399FF'
-            },
             label: {
               color: '#ffffff',
               fontSize: 16
