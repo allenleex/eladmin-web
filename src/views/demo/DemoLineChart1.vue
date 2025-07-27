@@ -1,7 +1,7 @@
 /* eslint-disable */
 <!-- DemoLineChart.vue -->
 <template>
-  <div ref="demoLineChart" class="chart-container" />
+  <div ref="demoLineChart1" class="chart-container" />
 </template>
 
 <script>
@@ -9,7 +9,7 @@ import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from '@/views/dashboard/mixins/resize'
 export default {
-  name: 'DemoLineChart',
+  name: 'DemoLineChart1',
   mixins: [resize],
   props: {
     options: {
@@ -172,9 +172,9 @@ export default {
   },
   methods: {
     initChart(theme = this.theme) {
-      if (!this.$refs.demoLineChart) return
+      if (!this.$refs.demoLineChart1) return
       // 初始化图表实例
-      this.chartInstance = echarts.init(this.$refs.demoLineChart, theme)
+      this.chartInstance = echarts.init(this.$refs.demoLineChart1, theme)
       // 设置初始配置
       this.updateChart()
     },

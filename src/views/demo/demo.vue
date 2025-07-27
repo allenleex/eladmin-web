@@ -10,7 +10,7 @@
           </md-toolbar>
           <div class="chart-cards">
             <md-card style="height: 242px">
-              <DemoLineChart />
+              <DemoLineChart1 />
             </md-card>
             <md-card style="height: 242px">
               <DemoBarChart1 />
@@ -56,13 +56,13 @@
                 <md-card style="padding: 10px 20px;">
                   <el-row :gutter="24">
                     <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
-                      <DemoLineChart />
+                      <DemoLineChart2 />
                     </el-col>
                     <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
-                      <DemoLineChart />
+                      <DemoPieChart3 />
                     </el-col>
                     <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
-                      <DemoLineChart />
+                      <DemoBarChart4 />
                     </el-col>
                   </el-row>
                 </md-card>
@@ -80,19 +80,22 @@ import Background1 from '@/assets/images/bg01.jpg'
 import Background2 from '@/assets/images/bg02.jpg'
 import Background3 from '@/assets/images/bg03.jpg'
 import Background4 from '@/assets/images/bg04.jpg'
-import DemoLineChart from './DemoLineChart.vue'
-import DemoBarChart1 from './DemoBarChart1.vue'
-import DemoBarChart2 from './DemoBarChart2.vue'
-import DemoBarChart3 from './DemoBarChart3.vue'
-import DemoPieChart1 from './DemoPieChart1.vue'
-import DemoPieChart2 from './DemoPieChart2.vue'
+import DemoLineChart1 from './DemoLineChart1.vue' // 设备故障时长
+import DemoLineChart2 from './DemoLineChart2.vue' // 平均使用次数
+import DemoBarChart1 from './DemoBarChart1.vue' // 设备创收
+import DemoBarChart2 from './DemoBarChart2.vue' // 设备分摊设备租金
+import DemoBarChart3 from './DemoBarChart3.vue' // 证书状态
+import DemoBarChart4 from './DemoBarChart4.vue' // 丢失成本
+import DemoPieChart1 from './DemoPieChart1.vue' // 项目资产折旧
+import DemoPieChart2 from './DemoPieChart2.vue' // 历史缺陷
+import DemoPieChart3 from './DemoPieChart3.vue' // 报废率
 // import SimpleBar from 'simplebar-vue';
 // import 'simplebar/dist/simplebar.min.css';
 
 export default {
   name: 'Demo',
   components: {
-    DemoLineChart, DemoBarChart1, DemoBarChart2, DemoBarChart3, DemoPieChart1, DemoPieChart2
+    DemoLineChart1, DemoLineChart2, DemoBarChart1, DemoBarChart2, DemoBarChart3, DemoBarChart4, DemoPieChart1, DemoPieChart2, DemoPieChart3
   },
   data: () => ({
     Background1: Background1,
