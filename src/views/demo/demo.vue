@@ -20,10 +20,10 @@
             <span class="md-title">项目资产成本</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 242px">
+            <md-card style="height: 243px">
               <DemoPieChart1 />
             </md-card>
-            <md-card style="height: 242px">
+            <md-card style="height: 243px">
               <DemoBarChart2 />
             </md-card>
           </div>
@@ -41,7 +41,7 @@
                 <md-card style="height: 360px">
                   <DemoBarChart3 />
                 </md-card>
-                <md-card style="height: 300px">
+                <md-card style="height: 302px">
                   <DemoPieChart2 />
                 </md-card>
               </div>
