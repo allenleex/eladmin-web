@@ -1,5 +1,5 @@
 <template>
-  <div ref="demoPieChart1" class="chart-container" />
+  <div ref="demoPieChart2" class="chart-container" />
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import * as echarts from 'echarts'
 import 'echarts/theme/macarons' // 正确引入主题
 
 export default {
-  name: 'DemoPieChart1',
+  name: 'DemoPieChart2',
   props: {
     options: {
       type: Object,
@@ -15,7 +15,7 @@ export default {
       default: () => ({
         backgroundColor: 'transparent',
         title: {
-          text: '项目资产折旧',
+          text: '历史缺陷',
           left: 'left',
           textStyle: {
             fontSize: 12,
@@ -40,9 +40,9 @@ export default {
           {
             name: '折旧情况',
             type: 'pie',
-            radius: ['0%', '60%'],
-            center: ['35%', '50%'],
-            startAngle: 45,
+            radius: ['25%', '50%'],
+            center: ['40%', '50%'],
+            startAngle: 320,
             avoidLabelOverlap: false,
             itemStyle: {
               borderColor: '#1A1C2F',
@@ -50,7 +50,7 @@ export default {
             },
             label: {
               show: true,
-              formatter: '{b}\n折旧:{c}万 {d}%',
+              formatter: '{b}\n数量:{c} {d}%',
               lineHeight: 15,
               backgroundColor: 'transparent',
               borderRadius: 0,
@@ -73,30 +73,30 @@ export default {
             data: [
               {
                 value: 25,
-                name: 'SB-2025611',
+                name: '维护缺陷',
                 itemStyle: {
                   color: '#4CC9F0'
                 }
               },
               {
-                value: 45,
-                name: 'SB-2025416',
+                value: 35,
+                name: '性能退化',
                 itemStyle: {
                   color: '#7209B7'
                 }
               },
               {
-                value: 10,
-                name: 'SB-2025827',
+                value: 20,
+                name: '出厂缺陷',
                 itemStyle: {
-                  color: '#FFD166'
+                  color: '#FF6B35'
                 }
               },
               {
                 value: 20,
-                name: 'SB-2025231',
+                name: '腐蚀缺陷',
                 itemStyle: {
-                  color: '#FF6B35'
+                  color: '#FFD166'
                 }
               }
             ]
@@ -139,9 +139,9 @@ export default {
   methods: {
     initChart(theme = this.theme) {
       // 修复DOM引用错误
-      if (!this.$refs.demoPieChart1) return
+      if (!this.$refs.demoPieChart2) return
       // 初始化图表实例
-      this.chartInstance = echarts.init(this.$refs.demoPieChart1, theme)
+      this.chartInstance = echarts.init(this.$refs.demoPieChart2, theme)
       // 设置初始配置
       this.updateChart()
     },

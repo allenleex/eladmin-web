@@ -1,5 +1,5 @@
 <template>
-  <div ref="demoBarChart1" class="chart-container" />
+  <div ref="demoBarChart2" class="chart-container" />
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import * as echarts from 'echarts'
 import 'echarts/theme/macarons' // 正确引入主题
 
 export default {
-  name: 'DemoBarChart1',
+  name: 'DemoBarChart2',
   props: {
     options: {
       type: Object,
@@ -18,7 +18,7 @@ export default {
           areaColor: 'transparent'
         },
         title: {
-          text: '设备创收',
+          text: '项目分摊设备租金',
           left: 'left',
           textStyle: {
             fontSize: 12,
@@ -39,7 +39,7 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: ['SB-2025611', 'SB-202541', 'SB-2025411', 'SB-2025226', 'SB-2025226'],
+          data: ['山东碧桂园工程第二期', '龙美三村三拆新项目', '厦门特尔工厂项目'],
           axisLabel: {
             interval: 0,
             fontSize: 10,
@@ -56,7 +56,7 @@ export default {
             type: 'value',
             name: '',
             min: 0,
-            max: 160,
+            max: 140,
             interval: 20,
             axisLabel: {
               formatter: '{value}',
@@ -79,8 +79,8 @@ export default {
             type: 'value',
             name: '',
             min: 0,
-            max: 1000, // 修正最大值
-            interval: 200,
+            max: 100, // 修正最大值
+            interval: 20,
             axisLabel: {
               formatter: '{value}%',
               color: '#4CC9F0'
@@ -100,29 +100,29 @@ export default {
         ],
         series: [
           {
-            name: '创收(万元)',
+            name: '分摊额(万元)',
             type: 'bar',
-            data: [120, 140, 120, 160, 180],
+            data: [130, 55, 90],
             itemStyle: {
               color: '#4CC9F0'
             },
             barWidth: 15
           },
           {
-            name: '成本(万元)',
+            name: '分摊折旧额(万元)',
             type: 'bar',
-            data: [80, 60, 80, 140, 160],
+            data: [80, 100, 20],
             itemStyle: {
               color: '#4361EE'
             },
             barWidth: 15
           },
           {
-            name: '收益率(%)',
+            name: '分摊比例(%)',
             type: 'line',
             smooth: false,
             yAxisIndex: 1,
-            data: [350, 800, 200, 300, 700], // 修正数据值
+            data: [20, 80, 60], // 修正数据值
             itemStyle: {
               color: '#FF6B35'
             },
@@ -184,9 +184,9 @@ export default {
   methods: {
     initChart(theme = this.theme) {
       // 修复DOM引用错误
-      if (!this.$refs.demoBarChart1) return
+      if (!this.$refs.demoBarChart2) return
       // 初始化图表实例
-      this.chartInstance = echarts.init(this.$refs.demoBarChart1, theme)
+      this.chartInstance = echarts.init(this.$refs.demoBarChart2, theme)
       // 设置初始配置
       this.updateChart()
     },

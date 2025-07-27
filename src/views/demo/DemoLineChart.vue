@@ -24,7 +24,8 @@ export default {
           text: '设备故障时长',
           left: 'left',
           textStyle: {
-            fontSize: 12
+            fontSize: 12,
+            color: '#4CC9F0' // 添加文本颜色
           },
           padding: 0
         },
@@ -56,7 +57,14 @@ export default {
             '12月'
           ],
           axisLabel: {
-            interval: 0
+            interval: 0,
+            fontSize: 10,
+            color: '#4CC9F0' // 添加文本颜色
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#4CC9F0' // 坐标轴颜色
+            }
           }
         },
         yAxis: {
@@ -65,6 +73,15 @@ export default {
           max: 100,
           min: 0,
           interval: 20,
+          axisLabel: {
+            interval: 0,
+            color: '#4CC9F0' // 添加文本颜色
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#4CC9F0' // 坐标轴颜色
+            }
+          },
           splitLine: {
             show: false
           }

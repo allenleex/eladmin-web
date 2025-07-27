@@ -1,5 +1,5 @@
 <template>
-  <div ref="demoBarChart1" class="chart-container" />
+  <div ref="demoBarChart3" class="chart-container" />
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import * as echarts from 'echarts'
 import 'echarts/theme/macarons' // 正确引入主题
 
 export default {
-  name: 'DemoBarChart1',
+  name: 'DemoBarChart3',
   props: {
     options: {
       type: Object,
@@ -18,7 +18,7 @@ export default {
           areaColor: 'transparent'
         },
         title: {
-          text: '设备创收',
+          text: '证书状态',
           left: 'left',
           textStyle: {
             fontSize: 12,
@@ -28,7 +28,7 @@ export default {
         },
         grid: {
           left: '0px',
-          right: '0px',
+          right: '10px',
           top: '30px',
           bottom: '20px',
           containLabel: true
@@ -37,26 +37,12 @@ export default {
           trigger: 'axis',
           formatter: '{b}<br/>{a}: {c}'
         },
-        xAxis: {
-          type: 'category',
-          data: ['SB-2025611', 'SB-202541', 'SB-2025411', 'SB-2025226', 'SB-2025226'],
-          axisLabel: {
-            interval: 0,
-            fontSize: 10,
-            color: '#4CC9F0' // 添加文本颜色
-          },
-          axisLine: {
-            lineStyle: {
-              color: '#4CC9F0' // 坐标轴颜色
-            }
-          }
-        },
-        yAxis: [
+        xAxis: [
           {
             type: 'value',
             name: '',
             min: 0,
-            max: 160,
+            max: 200,
             interval: 20,
             axisLabel: {
               formatter: '{value}',
@@ -74,63 +60,49 @@ export default {
             nameTextStyle: {
               color: '#4CC9F0'
             }
-          },
-          {
-            type: 'value',
-            name: '',
-            min: 0,
-            max: 1000, // 修正最大值
-            interval: 200,
-            axisLabel: {
-              formatter: '{value}%',
-              color: '#4CC9F0'
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#4CC9F0'
-              }
-            },
-            splitLine: {
-              show: false
-            },
-            nameTextStyle: {
-              color: '#4CC9F0'
-            }
           }
         ],
+        yAxis: {
+          type: 'category',
+          data: ['一级建造师证书', '注册电气工程师', '注册结构工程师', '注册岩土工程师'],
+          axisLabel: {
+            interval: 0,
+            fontSize: 10,
+            color: '#4CC9F0' // 添加文本颜色
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#4CC9F0' // 坐标轴颜色
+            }
+          }
+        },
         series: [
           {
-            name: '创收(万元)',
+            name: '有效证书',
             type: 'bar',
-            data: [120, 140, 120, 160, 180],
+            data: [160, 160, 160, 160],
             itemStyle: {
               color: '#4CC9F0'
             },
             barWidth: 15
           },
           {
-            name: '成本(万元)',
+            name: '过期证书',
             type: 'bar',
-            data: [80, 60, 80, 140, 160],
+            data: [120, 120, 120, 120],
             itemStyle: {
               color: '#4361EE'
             },
             barWidth: 15
           },
           {
-            name: '收益率(%)',
-            type: 'line',
-            smooth: false,
-            yAxisIndex: 1,
-            data: [350, 800, 200, 300, 700], // 修正数据值
+            name: '吊销证书',
+            type: 'bar',
+            data: [75, 75, 75, 75],
             itemStyle: {
               color: '#FF6B35'
             },
-            lineStyle: {
-              width: 3
-            },
-            symbol: 'circle',
-            symbolSize: 8
+            barWidth: 15
           }
         ],
         legend: {
@@ -184,9 +156,9 @@ export default {
   methods: {
     initChart(theme = this.theme) {
       // 修复DOM引用错误
-      if (!this.$refs.demoBarChart1) return
+      if (!this.$refs.demoBarChart3) return
       // 初始化图表实例
-      this.chartInstance = echarts.init(this.$refs.demoBarChart1, theme)
+      this.chartInstance = echarts.init(this.$refs.demoBarChart3, theme)
       // 设置初始配置
       this.updateChart()
     },

@@ -24,25 +24,25 @@
               <DemoPieChart1 />
             </md-card>
             <md-card style="height: 242px">
-              <DemoBarChart1 />
+              <DemoBarChart2 />
             </md-card>
           </div>
         </el-col>
         <el-col :xs="18" :sm="18" :lg="18">
           <el-row :gutter="24" class="">
             <el-col :xs="16" :sm="16" :lg="16" style="height: 686px">
-              <DemoBarChart1 />
+              &nbsp;
             </el-col>
             <el-col :xs="8" :sm="8" :lg="8">
               <md-toolbar :md-elevation="1">
                 <span class="md-title">特种设备合格</span>
               </md-toolbar>
               <div class="chart-cards">
-                <md-card style="height: 350px">
-                  <DemoLineChart />
+                <md-card style="height: 360px">
+                  <DemoBarChart3 />
                 </md-card>
-                <md-card style="height: 310px">
-                  <DemoBarChart1 />
+                <md-card style="height: 300px">
+                  <DemoPieChart2 />
                 </md-card>
               </div>
             </el-col>
@@ -82,14 +82,17 @@ import Background3 from '@/assets/images/bg03.jpg'
 import Background4 from '@/assets/images/bg04.jpg'
 import DemoLineChart from './DemoLineChart.vue'
 import DemoBarChart1 from './DemoBarChart1.vue'
+import DemoBarChart2 from './DemoBarChart2.vue'
+import DemoBarChart3 from './DemoBarChart3.vue'
 import DemoPieChart1 from './DemoPieChart1.vue'
+import DemoPieChart2 from './DemoPieChart2.vue'
 // import SimpleBar from 'simplebar-vue';
 // import 'simplebar/dist/simplebar.min.css';
 
 export default {
   name: 'Demo',
   components: {
-    DemoLineChart, DemoBarChart1, DemoPieChart1
+    DemoLineChart, DemoBarChart1, DemoBarChart2, DemoBarChart3, DemoPieChart1, DemoPieChart2
   },
   data: () => ({
     Background1: Background1,
