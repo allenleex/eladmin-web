@@ -9,10 +9,10 @@
             <span class="md-title">单机效益分析</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 235px">
+            <md-card style="height: 242px">
               <DemoLineChart />
             </md-card>
-            <md-card style="height: 235px">
+            <md-card style="height: 242px">
               <DemoBarChart1 />
             </md-card>
           </div>
@@ -20,17 +20,17 @@
             <span class="md-title">项目资产成本</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 235px">
+            <md-card style="height: 242px">
               <DemoLineChart />
             </md-card>
-            <md-card style="height: 235px">
+            <md-card style="height: 242px">
               <DemoBarChart1 />
             </md-card>
           </div>
         </el-col>
         <el-col :xs="17" :sm="17" :lg="17">
           <el-row :gutter="24" class="my-b-10">
-            <el-col :xs="17" :sm="17" :lg="17" style="height: 665px">
+            <el-col :xs="17" :sm="17" :lg="17" style="height: 686px">
               <DemoBarChart1 />
             </el-col>
             <el-col :lg="7">
@@ -55,13 +55,13 @@
               <div class="chart-cards">
                 <md-card style="padding: 10px 20px;">
                   <el-row :gutter="24">
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 260px">
+                    <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
                       <DemoLineChart />
                     </el-col>
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 260px">
+                    <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
                       <DemoLineChart />
                     </el-col>
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 260px">
+                    <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
                       <DemoLineChart />
                     </el-col>
                   </el-row>
@@ -113,6 +113,11 @@ export default {
 .el-col {
   background: transparent !important;
 }
+
+.md-content {
+  margin-bottom: 0px !important;
+}
+
 .md-toolbar {
   background: #244187 !important;
   height: 24px !important;
