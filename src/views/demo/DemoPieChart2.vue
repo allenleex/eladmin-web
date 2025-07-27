@@ -77,7 +77,7 @@ export default {
                 value: 25,
                 name: '维护缺陷',
                 itemStyle: {
-                  color: '#AABAE3'
+                  color: '#4CC9F0'
                 }
               },
               {

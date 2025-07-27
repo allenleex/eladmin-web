@@ -104,7 +104,7 @@ export default {
             type: 'bar',
             data: [130, 55, 90],
             itemStyle: {
-              color: '#AABAE3'
+              color: '#4CC9F0'
             },
             barWidth: 15
           },

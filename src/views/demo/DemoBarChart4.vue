@@ -105,7 +105,7 @@ export default {
             stack: 'total',
             data: [105, 60, 70, 90, 20],
             itemStyle: {
-              color: '#AABAE3'
+              color: '#4CC9F0'
             },
             barWidth: 45
           },

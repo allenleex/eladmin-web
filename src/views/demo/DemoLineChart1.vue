@@ -104,7 +104,7 @@ export default {
           'name': 'SB-2025611',
           'type': 'line',
           'data': [5, 18, 22, 40, 25, 40, 38, 15, 25, 18, 38, 10],
-          'itemStyle': { 'color': '#AABAE3' },
+          'itemStyle': { 'color': '#4CC9F0' },
           'lineStyle': { 'width': 1 }
         },
         {

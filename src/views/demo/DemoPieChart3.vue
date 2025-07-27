@@ -77,7 +77,7 @@ export default {
                 value: 14,
                 name: '刚管',
                 itemStyle: {
-                  color: '#AABAE3'
+                  color: '#4CC9F0'
                 }
               },
               {
