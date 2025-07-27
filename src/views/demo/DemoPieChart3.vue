@@ -21,7 +21,7 @@ export default {
             fontSize: 12,
             color: '#4CC9F0' // 添加文本颜色
           },
-          padding: 0
+          padding: 2
         },
         tooltip: {
           trigger: 'item',

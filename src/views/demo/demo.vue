@@ -128,16 +128,17 @@ export default {
 }
 
 .md-toolbar {
-  background: #244187 !important;
+  background: linear-gradient(to right, #173357, #4371e2) !important;
+  opacity: 0.8 !important;
   height: 24px !important;
   padding: 0 1px !important;
   flex-flow: row wrap;
   position: relative;
   z-index: 2;
   border-radius: 5px 5px 0% 0%;
-  border-top: 2px solid rgba(29, 74, 188, 0.90);
-  border-left: 2px solid rgba(29, 74, 188, 0.90);
-  border-right: 2px solid rgba(29, 74, 188, 0.90);
+  border-top: 1px solid rgba(67, 113, 226, 0.90);
+  border-left: 1px solid rgba(67, 113, 226, 0.90);
+  border-right: 1px solid rgba(67, 113, 226, 0.90);
 }
 
 .md-toolbar,
@@ -158,11 +159,11 @@ export default {
 }
 
 .chart-cards {
-  background: rgba(21, 48, 80, 0.9);
+  background: rgba(21, 48, 80, 0.8);
   border-radius: 0 0 5px 5px;
-  border-bottom: 2px solid rgba(29, 74, 188, 0.90);
-  border-left: 2px solid rgba(29, 74, 188, 0.90);
-  border-right: 2px solid rgba(29, 74, 188, 0.90);
+  border-bottom: 1px solid rgba(67, 113, 226, 0.90);
+  border-left: 1px solid rgba(67, 113, 226, 0.90);
+  border-right: 1px solid rgba(67, 113, 226, 0.90);
   margin-bottom: 10px;
 }
 
