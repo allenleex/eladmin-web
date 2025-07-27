@@ -22,7 +22,7 @@ export default {
           left: 'left',
           textStyle: {
             fontSize: 12,
-            color: '#4CC9F0' // 添加文本颜色
+            color: '#AABAE3' // 添加文本颜色
           },
           padding: 2
         },
@@ -46,19 +46,19 @@ export default {
             interval: 20,
             axisLabel: {
               formatter: '{value}',
-              color: '#4CC9F0',
+              color: '#AABAE3',
               backgroundColor: 'transparent'
             },
             axisLine: {
               lineStyle: {
-                color: '#4CC9F0'
+                color: '#AABAE3'
               }
             },
             splitLine: {
               show: false
             },
             nameTextStyle: {
-              color: '#4CC9F0'
+              color: '#AABAE3'
             }
           }
         ],
@@ -68,11 +68,11 @@ export default {
           axisLabel: {
             interval: 0,
             fontSize: 10,
-            color: '#4CC9F0' // 添加文本颜色
+            color: '#AABAE3' // 添加文本颜色
           },
           axisLine: {
             lineStyle: {
-              color: '#4CC9F0' // 坐标轴颜色
+              color: '#AABAE3' // 坐标轴颜色
             }
           }
         },
@@ -82,7 +82,7 @@ export default {
             type: 'bar',
             data: [160, 160, 160, 160],
             itemStyle: {
-              color: '#4CC9F0'
+              color: '#AABAE3'
             },
             barWidth: 15
           },

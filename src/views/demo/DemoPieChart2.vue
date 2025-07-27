@@ -19,7 +19,7 @@ export default {
           left: 'left',
           textStyle: {
             fontSize: 12,
-            color: '#4CC9F0' // 添加文本颜色
+            color: '#AABAE3' // 添加文本颜色
           },
           padding: 2
         },
@@ -57,7 +57,7 @@ export default {
               backgroundColor: 'transparent',
               borderRadius: 0,
               padding: [5, 5],
-              color: '#4CC9F0',
+              color: '#AABAE3',
               fontSize: 9
             },
             labelLine: {
@@ -77,7 +77,7 @@ export default {
                 value: 25,
                 name: '维护缺陷',
                 itemStyle: {
-                  color: '#4CC9F0'
+                  color: '#AABAE3'
                 }
               },
               {

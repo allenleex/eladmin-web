@@ -25,7 +25,7 @@ export default {
           left: 'left',
           textStyle: {
             fontSize: 12,
-            color: '#4CC9F0' // 添加文本颜色
+            color: '#AABAE3' // 添加文本颜色
           },
           padding: 2
         },
@@ -59,11 +59,11 @@ export default {
           axisLabel: {
             interval: 0,
             fontSize: 10,
-            color: '#4CC9F0' // 添加文本颜色
+            color: '#AABAE3' // 添加文本颜色
           },
           axisLine: {
             lineStyle: {
-              color: '#4CC9F0' // 坐标轴颜色
+              color: '#AABAE3' // 坐标轴颜色
             }
           }
         },
@@ -75,11 +75,11 @@ export default {
           interval: 20,
           axisLabel: {
             formatter: '{value}h',
-            color: '#4CC9F0'
+            color: '#AABAE3'
           },
           axisLine: {
             lineStyle: {
-              color: '#4CC9F0' // 坐标轴颜色
+              color: '#AABAE3' // 坐标轴颜色
             }
           },
           splitLine: {
@@ -104,7 +104,7 @@ export default {
           'name': 'SB-2025611',
           'type': 'line',
           'data': [5, 18, 22, 40, 25, 40, 38, 15, 25, 18, 38, 10],
-          'itemStyle': { 'color': '#4CC9F0' },
+          'itemStyle': { 'color': '#AABAE3' },
           'lineStyle': { 'width': 1 }
         },
         {
