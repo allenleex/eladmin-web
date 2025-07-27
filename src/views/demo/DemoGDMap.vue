@@ -8,7 +8,6 @@
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from '@/views/dashboard/mixins/resize'
-import mockData from '@/assets/json/demo_line_chart.json'
 export default {
   name: 'DemoGDMap',
   mixins: [resize],
@@ -42,7 +41,7 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: mockData.xAxis,
+          data: [],
           axisLabel: {
             interval: 0
           }
@@ -55,7 +54,7 @@ export default {
           name: '2023年',
           type: 'line',
           smooth: true,
-          data: mockData.series,
+          data: [],
           itemStyle: {
             color: '#5470C6'
           },

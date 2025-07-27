@@ -110,11 +110,11 @@ export default {
           x: 'center',
           y: 'bottom',
           padding: [0, 0, 0, 0],
-          itemGap: 2,
+          itemGap: 10,
           itemHeight: 9,
           itemWidth: 9,
           textStyle: {
-            fontSize: 8
+            fontSize: 9
           }
         }
       })

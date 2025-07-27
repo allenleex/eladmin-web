@@ -21,7 +21,7 @@
           </md-toolbar>
           <div class="chart-cards">
             <md-card style="height: 242px">
-              <DemoLineChart />
+              <DemoPieChart1 />
             </md-card>
             <md-card style="height: 242px">
               <DemoBarChart1 />
@@ -82,13 +82,14 @@ import Background3 from '@/assets/images/bg03.jpg'
 import Background4 from '@/assets/images/bg04.jpg'
 import DemoLineChart from './DemoLineChart.vue'
 import DemoBarChart1 from './DemoBarChart1.vue'
+import DemoPieChart1 from './DemoPieChart1.vue'
 // import SimpleBar from 'simplebar-vue';
 // import 'simplebar/dist/simplebar.min.css';
 
 export default {
   name: 'Demo',
   components: {
-    DemoLineChart, DemoBarChart1
+    DemoLineChart, DemoBarChart1, DemoPieChart1
   },
   data: () => ({
     Background1: Background1,

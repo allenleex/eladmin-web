@@ -1,7 +1,7 @@
 /* eslint-disable */
-<!-- DemoLineChart.vue -->
+<!-- DemoPaiChart1.vue -->
 <template>
-  <div ref="demoLineChart" class="chart-container" />
+  <div ref="demoPieChart1" class="chart-container" />
 </template>
 
 <script>
@@ -9,7 +9,7 @@ import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from '@/views/dashboard/mixins/resize'
 export default {
-  name: 'DemoLineChart',
+  name: 'DemoPieChart1',
   mixins: [resize],
   props: {
     options: {
@@ -21,7 +21,7 @@ export default {
           areaColor: 'transparent'
         },
         title: {
-          text: '设备创收',
+          text: '项目资产折旧',
           left: 'left',
           textStyle: {
             fontSize: 12
@@ -39,101 +39,88 @@ export default {
           trigger: 'axis',
           formatter: '{b}<br/>{a}: {c}'
         },
-        xAxis: {
-          type: 'category',
-          data: ['SB-2025611', 'SB-202541', 'SB-2025411', 'SB-2025226', 'SB-2025226'],
-          axisLabel: {
-            interval: 0
-          }
-        },
-        yAxis: [
+        series: [
           {
-            type: 'value',
-            name: '',
-            min: 0,
-            max: 160,
-            interval: 20,
-            axisLabel: {
-              formatter: '{value}',
-              color: '#ffffff'
+            name: '折旧情况',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            center: ['50%', '50%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderColor: '#1A1C2F',
+              borderWidth: 2
             },
-            axisLine: {
-              lineStyle: {
-                color: '#ffffff'
+            label: {
+              show: true,
+              formatter: '{b}\n折旧:{c}万\n{d}%',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: 4,
+              padding: [5, 10],
+              color: '#ffffff',
+              fontSize: 12
+            },
+            labelLine: {
+              show: true,
+              length: 15,
+              length2: 10
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: 14,
+                fontWeight: 'bold'
               }
             },
-            splitLine: {
-              show: false
-            },
-            nameTextStyle: {
-              color: '#ffffff'
-            }
-          },
-          {
-            type: 'value',
-            min: 0,
-            max: 1000,
-            interval: 200,
-            axisLabel: {
-              formatter: '{value}%',
-              color: '#ffffff'
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#ffffff'
+            data: [
+              {
+                value: 8.4,
+                name: 'SB-2025827',
+                itemStyle: {
+                  color: '#FFD166'
+                },
+                label: {
+                  formatter: 'SB-2025827\n折旧:8.4万\n10%'
+                }
+              },
+              {
+                value: 27,
+                name: 'SB-2025231',
+                itemStyle: {
+                  color: '#FF6B35'
+                },
+                label: {
+                  formatter: 'SB-2025231\n折旧:27万\n20%'
+                }
+              },
+              {
+                value: 68.4,
+                name: 'SB-2025416',
+                itemStyle: {
+                  color: '#7209B7'
+                },
+                label: {
+                  formatter: 'SB-2025416\n折旧:68.4万\n50%'
+                }
+              },
+              {
+                value: 38,
+                name: 'SB-2025611',
+                itemStyle: {
+                  color: '#4CC9F0'
+                },
+                label: {
+                  formatter: 'SB-2025611\n折旧:38万\n20%'
+                }
               }
-            },
-            splitLine: {
-              show: false
-            },
-            nameTextStyle: {
-              color: '#ffffff'
-            }
+            ]
           }
         ],
-        series: [{
-          name: '创收(万元)',
-          type: 'bar',
-          data: [120, 140, 120, 160, 180],
-          itemStyle: {
-            color: '#4CC9F0'
-          },
-          barWidth: 25
-        },
-        {
-          name: '成本(万元)',
-          type: 'bar',
-          data: [80, 60, 80, 140, 160],
-          itemStyle: {
-            color: '#4361EE'
-          },
-          barWidth: 25
-        },
-        {
-          name: '收益率(%)',
-          type: 'line',
-          yAxisIndex: 1,
-          data: [300, 800, 100, 250, 700],
-          itemStyle: {
-            color: '#FF6B35'
-          },
-          lineStyle: {
-            width: 3
-          },
-          symbol: 'circle',
-          symbolSize: 8
-        }],
         legend: {
-          type: 'plain',
-          orient: 'horizontal',
-          x: 'center',
-          y: 'bottom',
-          padding: [0, 0, 0, 0],
-          itemGap: 10,
-          itemHeight: 9,
-          itemWidth: 9,
+          orient: 'vertical',
+          right: 10,
+          top: 'center',
           textStyle: {
-            fontSize: 9
+            color: '#ffffff'
           }
         }
       })
