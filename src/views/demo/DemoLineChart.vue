@@ -31,7 +31,7 @@ export default {
         grid: {
           left: '0px',
           right: '0px',
-          top: '50px',
+          top: '30px',
           bottom: '20px',
           containLabel: true
         },

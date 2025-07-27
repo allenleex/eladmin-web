@@ -1,16 +1,13 @@
-/* eslint-disable */
-<!-- DemoLineChart.vue -->
 <template>
-  <div ref="demoLineChart" class="chart-container" />
+  <div ref="demoBarChart1" class="chart-container" />
 </template>
 
 <script>
 import * as echarts from 'echarts'
-require('echarts/theme/macarons') // echarts theme
-import resize from '@/views/dashboard/mixins/resize'
+import 'echarts/theme/macarons' // 正确引入主题
+
 export default {
-  name: 'DemoLineChart',
-  mixins: [resize],
+  name: 'DemoBarChart1',
   props: {
     options: {
       type: Object,
@@ -24,14 +21,15 @@ export default {
           text: '设备创收',
           left: 'left',
           textStyle: {
-            fontSize: 12
+            fontSize: 12,
+            color: '#ffffff' // 添加文本颜色
           },
           padding: 0
         },
         grid: {
           left: '0px',
           right: '0px',
-          top: '50px',
+          top: '30px',
           bottom: '20px',
           containLabel: true
         },
@@ -43,7 +41,13 @@ export default {
           type: 'category',
           data: ['SB-2025611', 'SB-202541', 'SB-2025411', 'SB-2025226', 'SB-2025226'],
           axisLabel: {
-            interval: 0
+            interval: 0,
+            color: '#ffffff' // 添加文本颜色
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#ffffff' // 坐标轴颜色
+            }
           }
         },
         yAxis: [
@@ -71,8 +75,9 @@ export default {
           },
           {
             type: 'value',
+            name: '',
             min: 0,
-            max: 1000,
+            max: 1000, // 修正最大值
             interval: 200,
             axisLabel: {
               formatter: '{value}%',
@@ -91,38 +96,41 @@ export default {
             }
           }
         ],
-        series: [{
-          name: '创收(万元)',
-          type: 'bar',
-          data: [120, 140, 120, 160, 180],
-          itemStyle: {
-            color: '#4CC9F0'
+        series: [
+          {
+            name: '创收(万元)',
+            type: 'bar',
+            data: [120, 140, 120, 160, 180],
+            itemStyle: {
+              color: '#4CC9F0'
+            },
+            barWidth: 15
           },
-          barWidth: 25
-        },
-        {
-          name: '成本(万元)',
-          type: 'bar',
-          data: [80, 60, 80, 140, 160],
-          itemStyle: {
-            color: '#4361EE'
+          {
+            name: '成本(万元)',
+            type: 'bar',
+            data: [80, 60, 80, 140, 160],
+            itemStyle: {
+              color: '#4361EE'
+            },
+            barWidth: 15
           },
-          barWidth: 25
-        },
-        {
-          name: '收益率(%)',
-          type: 'line',
-          yAxisIndex: 1,
-          data: [300, 800, 100, 250, 700],
-          itemStyle: {
-            color: '#FF6B35'
-          },
-          lineStyle: {
-            width: 3
-          },
-          symbol: 'circle',
-          symbolSize: 8
-        }],
+          {
+            name: '收益率(%)',
+            type: 'line',
+            smooth: false,
+            yAxisIndex: 1,
+            data: [350, 800, 200, 300, 700], // 修正数据值
+            itemStyle: {
+              color: '#FF6B35'
+            },
+            lineStyle: {
+              width: 3
+            },
+            symbol: 'circle',
+            symbolSize: 8
+          }
+        ],
         legend: {
           type: 'plain',
           orient: 'horizontal',
@@ -133,14 +141,15 @@ export default {
           itemHeight: 9,
           itemWidth: 9,
           textStyle: {
-            fontSize: 9
+            fontSize: 9,
+            color: '#ffffff' // 添加文本颜色
           }
         }
       })
     },
     theme: {
       type: String,
-      default: 'dark'
+      default: 'macarons' // 使用正确的主题名称
     }
   },
   data() {
@@ -149,14 +158,12 @@ export default {
     }
   },
   watch: {
-    // 深度监听 options 变化
     options: {
       deep: true,
       handler() {
         this.updateChart()
       }
     },
-    // 监听主题变化
     theme(newTheme) {
       this.destroyChart()
       this.initChart(newTheme)
@@ -174,18 +181,20 @@ export default {
   },
   methods: {
     initChart(theme = this.theme) {
-      if (!this.$refs.demoLineChart) return
+      // 修复DOM引用错误
+      if (!this.$refs.demoBarChart1) return
       // 初始化图表实例
-      this.chartInstance = echarts.init(this.$refs.demoLineChart, theme)
+      this.chartInstance = echarts.init(this.$refs.demoBarChart1, theme)
       // 设置初始配置
       this.updateChart()
     },
     updateChart() {
       if (this.chartInstance) {
         try {
-          this.chartInstance.setOption(this.options, true) // true 表示不合并旧配置
+          // 应用配置
+          this.chartInstance.setOption(this.options, true)
         } catch (error) {
-          console.error('echarts error:', error)
+          console.error('ECharts配置错误:', error)
         }
       }
     },
@@ -206,7 +215,7 @@ export default {
 
 <style scoped>
 .chart-container {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
 </style>
