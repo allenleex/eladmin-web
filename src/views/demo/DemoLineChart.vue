@@ -8,7 +8,6 @@
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from '@/views/dashboard/mixins/resize'
-import mockData from '@/assets/json/demo_line_chart.json'
 export default {
   name: 'DemoLineChart',
   mixins: [resize],
@@ -42,36 +41,81 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: mockData.xAxis,
+          data: [
+            '1月',
+            '2月',
+            '3月',
+            '4月',
+            '5月',
+            '6月',
+            '7月',
+            '8月',
+            '9月',
+            '10月',
+            '11月',
+            '12月'
+          ],
           axisLabel: {
             interval: 0
           }
         },
         yAxis: {
           type: 'value',
-          name: '销售额(万)'
+          name: '',
+          max: 100,
+          min: 0,
+          interval: 20,
+          splitLine: {
+            show: false
+          }
         },
         series: [{
-          name: '2023年',
-          type: 'line',
-          smooth: true,
-          data: mockData.series,
-          itemStyle: {
-            color: '#5470C6'
-          },
-          areaStyle: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: 'rgba(84, 112, 198, 0.5)' },
-              { offset: 1, color: 'rgba(84, 112, 198, 0.1)' }
-            ])
-          }
+          'name': 'SB-2025411',
+          'type': 'line',
+          'data': [15, 35, 60, 75, 85, 95, 90, 70, 55, 40, 30, 20],
+          'itemStyle': { 'color': '#FF6B35' },
+          'lineStyle': { 'width': 1 }
+        },
+        {
+          'name': 'SB-202541',
+          'type': 'line',
+          'data': [40, 50, 65, 80, 95, 100, 95, 85, 75, 65, 55, 45],
+          'itemStyle': { 'color': '#4361EE' },
+          'lineStyle': { 'width': 1 }
+        },
+        {
+          'name': 'SB-2025611',
+          'type': 'line',
+          'data': [10, 25, 45, 60, 70, 85, 80, 65, 50, 35, 25, 15],
+          'itemStyle': { 'color': '#4CC9F0' },
+          'lineStyle': { 'width': 1 }
+        },
+        {
+          'name': 'SB-2025226',
+          'type': 'line',
+          'data': [0, 0, 10, 12, 15, 90, 85, 75, 60, 45, 35, 25],
+          'itemStyle': { 'color': '#FFD166' },
+          'lineStyle': { 'width': 1 }
+        },
+        {
+          'name': 'SB-2025226',
+          'type': 'line',
+          'data': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          'itemStyle': { 'color': '#7209B7' },
+          'lineStyle': { 'width': 1 }
         }],
         legend: {
           type: 'plain',
           orient: 'horizontal',
           x: 'center',
           y: 'bottom',
-          padding: [0, 0, 0, 0]
+          padding: [0, 0, 0, 0],
+          itemGap: 2,
+          itemHeight: 9,
+          itemWidth: 9,
+          textStyle: {
+            fontSize: 8
+          }
         }
       })
     },

@@ -1,15 +1,16 @@
 /* eslint-disable */
 <!-- DemoLineChart.vue -->
 <template>
-  <div ref="demoLineChart" class="chart-container" />
+  <div ref="demoGDMap" class="chart-container" />
 </template>
 
 <script>
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from '@/views/dashboard/mixins/resize'
+import mockData from '@/assets/json/demo_line_chart.json'
 export default {
-  name: 'DemoLineChart',
+  name: 'DemoGDMap',
   mixins: [resize],
   props: {
     options: {
@@ -21,7 +22,7 @@ export default {
           areaColor: 'transparent'
         },
         title: {
-          text: '设备创收',
+          text: '设备故障时长',
           left: 'left',
           textStyle: {
             fontSize: 12
@@ -41,88 +42,29 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: ['SB-2025611', 'SB-202541', 'SB-2025411', 'SB-2025226', 'SB-2025226'],
+          data: mockData.xAxis,
           axisLabel: {
             interval: 0
           }
         },
-        yAxis: [
-          {
-            type: 'value',
-            name: '金额(万元)',
-            min: 0,
-            max: 160,
-            interval: 20,
-            axisLabel: {
-              formatter: '{value}',
-              color: '#ffffff'
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#ffffff'
-              }
-            },
-            splitLine: {
-              show: false
-            },
-            nameTextStyle: {
-              color: '#ffffff'
-            }
-          },
-          {
-            type: 'value',
-            name: '收益率(%)',
-            min: 0,
-            max: 1000,
-            interval: 200,
-            axisLabel: {
-              formatter: '{value}%',
-              color: '#ffffff'
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#ffffff'
-              }
-            },
-            splitLine: {
-              show: false
-            },
-            nameTextStyle: {
-              color: '#ffffff'
-            }
-          }
-        ],
+        yAxis: {
+          type: 'value',
+          name: '销售额(万)'
+        },
         series: [{
-          name: '创收(万元)',
-          type: 'bar',
-          data: [120, 140, 120, 160, 180],
-          itemStyle: {
-            color: '#4CC9F0'
-          },
-          barWidth: 25
-        },
-        {
-          name: '成本(万元)',
-          type: 'bar',
-          data: [80, 60, 80, 140, 160],
-          itemStyle: {
-            color: '#4361EE'
-          },
-          barWidth: 25
-        },
-        {
-          name: '收益率(%)',
+          name: '2023年',
           type: 'line',
-          yAxisIndex: 1,
-          data: [300, 800, 100, 250, 700],
+          smooth: true,
+          data: mockData.series,
           itemStyle: {
-            color: '#FF6B35'
+            color: '#5470C6'
           },
-          lineStyle: {
-            width: 3
-          },
-          symbol: 'circle',
-          symbolSize: 8
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(84, 112, 198, 0.5)' },
+              { offset: 1, color: 'rgba(84, 112, 198, 0.1)' }
+            ])
+          }
         }],
         legend: {
           type: 'plain',

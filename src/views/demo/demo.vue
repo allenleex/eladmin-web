@@ -3,8 +3,8 @@
   <div class="md-container" :style="'background-image:url(' + Background4 + '); background-size: 100% auto;'">
     <!-- <div class="md-container" style="background: black;"> -->
     <md-content>
-      <el-row :gutter="24">
-        <el-col :xs="7" :sm="7" :lg="7">
+      <el-row :gutter="24" style="margin: 0 -20px;">
+        <el-col :xs="6" :sm="6" :lg="6">
           <md-toolbar :md-elevation="1">
             <span class="md-title">单机效益分析</span>
           </md-toolbar>
@@ -28,12 +28,12 @@
             </md-card>
           </div>
         </el-col>
-        <el-col :xs="17" :sm="17" :lg="17">
-          <el-row :gutter="24" class="my-b-10">
-            <el-col :xs="17" :sm="17" :lg="17" style="height: 686px">
+        <el-col :xs="18" :sm="18" :lg="18">
+          <el-row :gutter="24" class="">
+            <el-col :xs="16" :sm="16" :lg="16" style="height: 686px">
               <DemoBarChart1 />
             </el-col>
-            <el-col :lg="7">
+            <el-col :xs="8" :sm="8" :lg="8">
               <md-toolbar :md-elevation="1">
                 <span class="md-title">特种设备合格</span>
               </md-toolbar>
@@ -41,13 +41,13 @@
                 <md-card style="height: 350px">
                   <DemoLineChart />
                 </md-card>
-                <md-card style="height: 300px">
+                <md-card style="height: 310px">
                   <DemoBarChart1 />
                 </md-card>
               </div>
             </el-col>
           </el-row>
-          <el-row :gutter="24">
+          <el-row :gutter="24" style="margin-left: -25px;">
             <el-col :xs="24" :sm="24" :lg="24">
               <md-toolbar :md-elevation="1">
                 <span class="md-title">周转材料周转率</span>
