@@ -31,7 +31,7 @@
         <el-col :xs="18" :sm="18" :lg="18">
           <el-row :gutter="24" class="">
             <el-col :xs="16" :sm="16" :lg="16" style="height: 686px">
-              &nbsp;
+              <DemoGDMap />
             </el-col>
             <el-col :xs="8" :sm="8" :lg="8">
               <md-toolbar :md-elevation="1">
@@ -81,6 +81,7 @@ import Background2 from '@/assets/images/bg02.jpg'
 import Background3 from '@/assets/images/bg03.jpg'
 import Background4 from '@/assets/images/bg04.jpg'
 import Background5 from '@/assets/images/bg05.jpg'
+import DemoGDMap from './DemoGDMap.vue' // 广东地图
 import DemoLineChart1 from './DemoLineChart1.vue' // 设备故障时长
 import DemoLineChart2 from './DemoLineChart2.vue' // 平均使用次数
 import DemoBarChart1 from './DemoBarChart1.vue' // 设备创收
@@ -96,7 +97,7 @@ import DemoPieChart3 from './DemoPieChart3.vue' // 报废率
 export default {
   name: 'Demo',
   components: {
-    DemoLineChart1, DemoLineChart2, DemoBarChart1, DemoBarChart2, DemoBarChart3, DemoBarChart4, DemoPieChart1, DemoPieChart2, DemoPieChart3
+    DemoGDMap, DemoLineChart1, DemoLineChart2, DemoBarChart1, DemoBarChart2, DemoBarChart3, DemoBarChart4, DemoPieChart1, DemoPieChart2, DemoPieChart3
   },
   data: () => ({
     Background1: Background1,
