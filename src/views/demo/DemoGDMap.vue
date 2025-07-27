@@ -27,11 +27,14 @@ export default {
           max: 100,
           calculable: true,
           inRange: {
-            color: ['#e0f3f8', '#abd9e9', '#74add1', '#4575b4', '#313695']
+            color: ['#4361EE', '#4CC9F0', '#7209B7', '#FFD166', '#FF6B35'] // 从紫色色到橙色的渐变
           },
           textStyle: {
             color: '#fff'
-          }
+          },
+          orient: 'vertical', // 添加视觉映射组件位置和方向
+          right: '3%',
+          bottom: '15%'
         },
         series: [{
           type: 'map',
@@ -63,12 +66,13 @@ export default {
           },
           label: {
             show: true,
-            fontSize: 10,
-            color: 'rgba(255,255,255,0.9)'
+            fontSize: 14,
+            fontWeight: 'bold',
+            color: '#ffffff'
           },
           itemStyle: {
             areaColor: '#2a5caa',
-            borderColor: '#0a3a6a',
+            borderColor: 'rgba(0,0,0,0.5)',
             borderWidth: 1
           },
           emphasis: {
@@ -76,32 +80,32 @@ export default {
               areaColor: '#3399FF'
             },
             label: {
-              color: '#333',
-              fontSize: 12
+              color: '#ffffff',
+              fontSize: 16
             }
           },
           data: [
-            { name: '广州市', value: 100 },
-            { name: '深圳市', value: 95 },
-            { name: '珠海市', value: 85 },
-            { name: '佛山市', value: 80 },
-            { name: '东莞市', value: 75 },
-            { name: '中山市', value: 70 },
-            { name: '惠州市', value: 65 },
-            { name: '汕头市', value: 60 },
-            { name: '江门市', value: 55 },
-            { name: '湛江市', value: 50 },
-            { name: '肇庆市', value: 45 },
-            { name: '茂名市', value: 40 },
-            { name: '揭阳市', value: 35 },
-            { name: '清远市', value: 30 },
-            { name: '阳江市', value: 25 },
-            { name: '韶关市', value: 20 },
-            { name: '梅州市', value: 15 },
-            { name: '汕尾市', value: 10 },
-            { name: '河源市', value: 8 },
-            { name: '潮州市', value: 5 },
-            { name: '云浮市', value: 3 }
+            { name: '广州', value: 100 },
+            { name: '深圳', value: 95 },
+            { name: '珠海', value: 85 },
+            { name: '佛山', value: 80 },
+            { name: '东莞', value: 75 },
+            { name: '中山', value: 70 },
+            { name: '惠州', value: 65 },
+            { name: '汕头', value: 60 },
+            { name: '江门', value: 55 },
+            { name: '湛江', value: 50 },
+            { name: '肇庆', value: 45 },
+            { name: '茂名', value: 40 },
+            { name: '揭阳', value: 35 },
+            { name: '清远', value: 30 },
+            { name: '阳江', value: 25 },
+            { name: '韶关', value: 20 },
+            { name: '梅州', value: 15 },
+            { name: '汕尾', value: 10 },
+            { name: '河源', value: 8 },
+            { name: '潮州', value: 5 },
+            { name: '云浮', value: 3 }
           ]
         }]
       })
@@ -138,6 +142,7 @@ export default {
             ...props.options,
             // 添加标题配置
             title: props.options.title || {
+              show: false,
               text: '广东省地图',
               left: 'center',
               top: 10,
