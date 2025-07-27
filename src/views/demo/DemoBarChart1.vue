@@ -17,6 +17,10 @@ export default {
       type: Object,
       required: true,
       default: () => ({
+        backgroundColor: 'transparent',
+        itemStyle: {
+          areaColor: 'transparent'
+        },
         title: {
           text: '设备创收',
           left: 'left',
