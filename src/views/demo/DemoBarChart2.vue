@@ -127,7 +127,7 @@ export default {
               color: '#FF6B35'
             },
             lineStyle: {
-              width: 3
+              width: 2
             },
             symbol: 'circle',
             symbolSize: 8

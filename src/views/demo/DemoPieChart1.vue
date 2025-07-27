@@ -31,6 +31,8 @@ export default {
           orient: 'vertical',
           right: 10,
           top: 'center',
+          itemHeight: 9,
+          itemWidth: 9,
           textStyle: {
             color: '#ffffff',
             fontSize: 9

@@ -1,6 +1,6 @@
 /* eslint-disable */
 <template>
-  <div class="md-container" :style="'background-image:url(' + Background4 + '); background-size: 100% auto;'">
+  <div class="md-container" :style="'background-image:url(' + Background5 + '); background-size: 100% auto;'">
     <!-- <div class="md-container" style="background: black;"> -->
     <md-content>
       <el-row :gutter="24" style="margin: 0 -20px;">
@@ -80,6 +80,7 @@ import Background1 from '@/assets/images/bg01.jpg'
 import Background2 from '@/assets/images/bg02.jpg'
 import Background3 from '@/assets/images/bg03.jpg'
 import Background4 from '@/assets/images/bg04.jpg'
+import Background5 from '@/assets/images/bg05.jpg'
 import DemoLineChart1 from './DemoLineChart1.vue' // 设备故障时长
 import DemoLineChart2 from './DemoLineChart2.vue' // 平均使用次数
 import DemoBarChart1 from './DemoBarChart1.vue' // 设备创收
@@ -101,7 +102,8 @@ export default {
     Background1: Background1,
     Background2: Background2,
     Background3: Background3,
-    Background4: Background4
+    Background4: Background4,
+    Background5: Background5
   }),
   updated() {
     this.$nextTick(() => {

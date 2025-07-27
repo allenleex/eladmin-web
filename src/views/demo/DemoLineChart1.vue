@@ -74,8 +74,8 @@ export default {
           min: 0,
           interval: 20,
           axisLabel: {
-            interval: 0,
-            color: '#4CC9F0' // 添加文本颜色
+            formatter: '{value}h',
+            color: '#4CC9F0'
           },
           axisLine: {
             lineStyle: {
@@ -89,28 +89,28 @@ export default {
         series: [{
           'name': 'SB-2025411',
           'type': 'line',
-          'data': [15, 35, 60, 75, 85, 95, 90, 70, 55, 40, 30, 20],
+          'data': [65, 60, 40, 50, 38, 5, 35, 5, 55, 30, 60, 50],
           'itemStyle': { 'color': '#FF6B35' },
           'lineStyle': { 'width': 1 }
         },
         {
           'name': 'SB-202541',
           'type': 'line',
-          'data': [40, 50, 65, 80, 95, 100, 95, 85, 75, 65, 55, 45],
+          'data': [10, 5, 50, 10, 60, 30, 60, 25, 5, 18, 5, 1],
           'itemStyle': { 'color': '#4361EE' },
           'lineStyle': { 'width': 1 }
         },
         {
           'name': 'SB-2025611',
           'type': 'line',
-          'data': [10, 25, 45, 60, 70, 85, 80, 65, 50, 35, 25, 15],
+          'data': [5, 18, 22, 40, 25, 40, 38, 15, 25, 18, 38, 10],
           'itemStyle': { 'color': '#4CC9F0' },
           'lineStyle': { 'width': 1 }
         },
         {
           'name': 'SB-2025226',
           'type': 'line',
-          'data': [0, 0, 10, 12, 15, 90, 85, 75, 60, 45, 35, 25],
+          'data': [0, 0, 10, 12, 15, 16, 30, 8, 7, 6, 20, 18],
           'itemStyle': { 'color': '#FFD166' },
           'lineStyle': { 'width': 1 }
         },
