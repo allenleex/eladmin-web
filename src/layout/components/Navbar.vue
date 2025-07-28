@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-    <!-- <breadcrumb id="breadcrumb-container" class="breadcrumb-container" /> -->
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device!=='mobile'">
         <!-- <search id="header-search" class="right-menu-item" /> -->
@@ -45,12 +45,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Screenfull from '@/components/Screenfull'
 import Avatar from '@/assets/images/avatar.png'
 
 export default {
   components: {
+    Breadcrumb,
     Hamburger,
     Screenfull
   },
@@ -106,7 +108,8 @@ export default {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #EEEEEE !important;
+  // background: transparent !important;
+  background: linear-gradient(to right, #173357, #4371e2) !important;
   // box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
   .hamburger-container {
