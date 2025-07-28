@@ -54,13 +54,14 @@
     }
 
     .svg-icon {
-      margin-right: 16px;
+      margin-right: 18px;
     }
 
     .el-menu {
       border: none;
       height: 100%;
       width: 100% !important;
+      margin-top: 10px;
     }
 
     // menu hover
@@ -106,7 +107,7 @@
         padding: 0 !important;
 
         .svg-icon {
-          margin-left: 20px;
+          margin-left: 18px;
         }
       }
     }
@@ -118,7 +119,7 @@
         padding: 0 !important;
 
         .svg-icon {
-          margin-left: 20px;
+          margin-left: 18px;
         }
 
         .el-submenu__icon-arrow {
@@ -179,7 +180,7 @@
 .el-menu--vertical {
   &>.el-menu {
     .svg-icon {
-      margin-right: 16px;
+      margin-right: 18px;
     }
   }
 

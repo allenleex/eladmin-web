@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: '后台管理',
+      title: '资产采集系统',
       logo: Logo
     }
   }
@@ -47,7 +47,8 @@ export default {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  text-align: center;
+  padding-left: 14px;
+  text-align: left;
   overflow: hidden;
 
   & .sidebar-logo-link {
@@ -55,19 +56,19 @@ export default {
     width: 100%;
 
     & .sidebar-logo {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       vertical-align: middle;
-      margin-right: 6px;
+      margin-right: 10px;
     }
 
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: #fff;
+      color: #ffffff;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 20px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
