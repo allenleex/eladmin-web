@@ -9,10 +9,10 @@
             <span class="md-title">单机效益分析</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 242px">
+            <md-card style="height: 227px">
               <DemoLineChart1 />
             </md-card>
-            <md-card style="height: 242px">
+            <md-card style="height: 227px">
               <DemoBarChart1 />
             </md-card>
           </div>
@@ -20,17 +20,17 @@
             <span class="md-title">项目资产成本</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 243px">
+            <md-card style="height: 227px">
               <DemoPieChart1 />
             </md-card>
-            <md-card style="height: 243px">
+            <md-card style="height: 227px">
               <DemoBarChart2 />
             </md-card>
           </div>
         </el-col>
         <el-col :xs="18" :sm="18" :lg="18">
           <el-row :gutter="24" class="">
-            <el-col :xs="16" :sm="16" :lg="16" style="height: 686px">
+            <el-col :xs="16" :sm="16" :lg="16" style="height: 644px">
               <DemoGDMap />
             </el-col>
             <el-col :xs="8" :sm="8" :lg="8">
@@ -38,10 +38,10 @@
                 <span class="md-title">特种设备合格</span>
               </md-toolbar>
               <div class="chart-cards">
-                <md-card style="height: 360px">
+                <md-card style="height: 340px">
                   <DemoBarChart3 />
                 </md-card>
-                <md-card style="height: 302px">
+                <md-card style="height: 280px">
                   <DemoPieChart2 />
                 </md-card>
               </div>
@@ -55,13 +55,13 @@
               <div class="chart-cards">
                 <md-card style="padding: 10px 20px;">
                   <el-row :gutter="24">
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
+                    <el-col :xs="8" :sm="8" :lg="8" style="height: 268px">
                       <DemoLineChart2 />
                     </el-col>
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
+                    <el-col :xs="8" :sm="8" :lg="8" style="height: 268px">
                       <DemoPieChart3 />
                     </el-col>
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 288px">
+                    <el-col :xs="8" :sm="8" :lg="8" style="height: 268px">
                       <DemoBarChart4 />
                     </el-col>
                   </el-row>
@@ -81,18 +81,16 @@ import Background2 from '@/assets/images/bg02.jpg'
 import Background3 from '@/assets/images/bg03.jpg'
 import Background4 from '@/assets/images/bg04.jpg'
 import Background5 from '@/assets/images/bg05.jpg'
-import DemoGDMap from './DemoGDMap.vue' // 广东地图
-import DemoLineChart1 from './DemoLineChart1.vue' // 设备故障时长
-import DemoLineChart2 from './DemoLineChart2.vue' // 平均使用次数
-import DemoBarChart1 from './DemoBarChart1.vue' // 设备创收
-import DemoBarChart2 from './DemoBarChart2.vue' // 设备分摊设备租金
-import DemoBarChart3 from './DemoBarChart3.vue' // 证书状态
-import DemoBarChart4 from './DemoBarChart4.vue' // 丢失成本
-import DemoPieChart1 from './DemoPieChart1.vue' // 项目资产折旧
-import DemoPieChart2 from './DemoPieChart2.vue' // 历史缺陷
-import DemoPieChart3 from './DemoPieChart3.vue' // 报废率
-// import SimpleBar from 'simplebar-vue';
-// import 'simplebar/dist/simplebar.min.css';
+import DemoGDMap from './components/DemoGDMap.vue' // 广东地图
+import DemoLineChart1 from './components/DemoLineChart1.vue' // 设备故障时长
+import DemoLineChart2 from './components/DemoLineChart2.vue' // 平均使用次数
+import DemoBarChart1 from './components/DemoBarChart1.vue' // 设备创收
+import DemoBarChart2 from './components/DemoBarChart2.vue' // 设备分摊设备租金
+import DemoBarChart3 from './components/DemoBarChart3.vue' // 证书状态
+import DemoBarChart4 from './components/DemoBarChart4.vue' // 丢失成本
+import DemoPieChart1 from './components/DemoPieChart1.vue' // 项目资产折旧
+import DemoPieChart2 from './components/DemoPieChart2.vue' // 历史缺陷
+import DemoPieChart3 from './components/DemoPieChart3.vue' // 报废率
 
 export default {
   name: 'Demo',
@@ -125,6 +123,7 @@ export default {
 }
 
 .md-content {
+  /* margin-top: 32px !important; */
   margin-bottom: 0px !important;
 }
 

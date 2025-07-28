@@ -1,7 +1,24 @@
 @import 'variables';
 
+#el-main-footer {
+  background: none repeat scroll 0 0 #000000;
+  border-top: none;
+  overflow: hidden;
+  padding: 0px 15px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 0.7rem !important;
+  color: #7a8b9a;
+  letter-spacing: 0.8px;
+  font-family: Arial, sans-serif !important;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
+}
+
 .md-container {
-    padding: 20px !important;
+    padding: 20px 25px !important;
 }
 
 .md-content {

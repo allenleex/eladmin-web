@@ -66,8 +66,11 @@
     // menu hover
     .submenu-title-noDropdown,
     .el-submenu__title {
+      font-size: 16px !important;
+      font-weight: 800 !important;
       &:hover {
         background-color: $menuHover !important;
+        text-decoration: none;
       }
     }
 
