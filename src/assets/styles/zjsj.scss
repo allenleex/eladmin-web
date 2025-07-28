@@ -52,12 +52,13 @@ h2::before {
 
 .indicator-title {
   display: block;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
   color: #000000;
   line-height: 28px;
   text-align: center;
   padding: 10px 0;
+  white-space: nowrap;
 
   sub {
     font-size: 0.8rem;
@@ -73,6 +74,20 @@ h2::before {
   color: #676767;
   line-height: 28px;
   text-align: center;
+  white-space: nowrap;
+}
+
+.indicator-title.bigger {
+  font-size: 28px;
+}
+
+.indicator-value.bigger {
+  font-size: 18px;
+}
+
+.indicator-title.red,
+.indicator-value.red {
+  color: #E45A2D !important;
 }
 
 .desc-title {

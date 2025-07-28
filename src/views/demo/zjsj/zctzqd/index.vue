@@ -49,11 +49,11 @@
           <h2>资产价值</h2>
           <div class="md-layout md-gutter">
             <div class="md-layout-item">
-              <span class="indicator-title">1100<sub>元</sub></span>
+              <span class="indicator-title">1,100<sub>元</sub></span>
               <span class="indicator-value">原值</span>
             </div>
             <div class="md-layout-item">
-              <span class="indicator-title">11000<sub>元</sub></span>
+              <span class="indicator-title">11,000<sub>元</sub></span>
               <span class="indicator-value">净残值</span>
             </div>
             <div class="md-layout-item">
