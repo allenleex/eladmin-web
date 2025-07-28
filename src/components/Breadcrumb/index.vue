@@ -68,12 +68,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-breadcrumb__inner a {
-  color: #888888;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: text;
+.el-breadcrumb__inner a,
+.el-breadcrumb__inner a:hover,
+.el-breadcrumb__inner a:link {
+  color: #EEEEEE !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  cursor: cursor !important;
 }
 .app-breadcrumb.el-breadcrumb {
   display: inline-block;
@@ -81,10 +83,10 @@ export default {
   line-height: 50px;
   margin-left: 8px;
   .no-redirect {
-    color: #888888;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: text;
+    color: #EEEEEE !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: cursor !important;
   }
 }
 </style>
