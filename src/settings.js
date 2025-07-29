@@ -2,7 +2,7 @@ module.exports = {
   /**
    * @description 网站标题
    */
-  title: '资产采集系统',
+  title: '中建三局三公司华南分公司固定资产管理系统',
   /**
    * @description 是否显示 tagsView
    */
@@ -38,7 +38,7 @@ module.exports = {
   /**
    * 底部文字，支持html语法
    */
-  footerTxt: '© 2025-2030 资产采集系统(演示版)',
+  footerTxt: '© 2025-2030 中建三局三公司华南分公司固定资产管理系统(演示版)',
   /**
    * 备案号
    */

@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: '资产采集系统',
+      title: '中建三局三公司华南分公司固定资产管理系统',
       logo: Logo
     }
   }
