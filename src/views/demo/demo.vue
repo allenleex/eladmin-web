@@ -9,10 +9,10 @@
             <span class="md-title">单机效益分析</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 227px">
+            <md-card class="height-4-1">
               <DemoLineChart1 />
             </md-card>
-            <md-card style="height: 227px">
+            <md-card class="height-4-1">
               <DemoBarChart1 />
             </md-card>
           </div>
@@ -20,17 +20,17 @@
             <span class="md-title">项目资产成本</span>
           </md-toolbar>
           <div class="chart-cards">
-            <md-card style="height: 227px">
+            <md-card class="height-4-1">
               <DemoPieChart1 />
             </md-card>
-            <md-card style="height: 227px">
+            <md-card class="height-4-1">
               <DemoBarChart2 />
             </md-card>
           </div>
         </el-col>
         <el-col :xs="18" :sm="18" :lg="18">
           <el-row :gutter="24" class="">
-            <el-col :xs="16" :sm="16" :lg="16" style="height: 644px">
+            <el-col :xs="16" :sm="16" :lg="16" class="height-3-2 ">
               <DemoGDMap />
             </el-col>
             <el-col :xs="8" :sm="8" :lg="8">
@@ -38,10 +38,10 @@
                 <span class="md-title">特种设备合格</span>
               </md-toolbar>
               <div class="chart-cards">
-                <md-card style="height: 340px">
+                <md-card class="height-3-1">
                   <DemoBarChart3 />
                 </md-card>
-                <md-card style="height: 280px">
+                <md-card class="height-3-1">
                   <DemoPieChart2 />
                 </md-card>
               </div>
@@ -55,13 +55,13 @@
               <div class="chart-cards">
                 <md-card style="padding: 10px 20px;">
                   <el-row :gutter="24">
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 268px">
+                    <el-col :xs="8" :sm="8" :lg="8" class="height-3-1">
                       <DemoLineChart2 />
                     </el-col>
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 268px">
+                    <el-col :xs="8" :sm="8" :lg="8" class="height-3-1">
                       <DemoPieChart3 />
                     </el-col>
-                    <el-col :xs="8" :sm="8" :lg="8" style="height: 268px">
+                    <el-col :xs="8" :sm="8" :lg="8" class="height-3-1">
                       <DemoBarChart4 />
                     </el-col>
                   </el-row>
@@ -181,4 +181,17 @@ export default {
 .my-b-10 {
   margin-bottom: 10px !important;
 }
+
+.height-3-2 {
+  height: calc((100vh - 192px) / 3 * 2);
+}
+
+.height-3-1 {
+  height: calc((100vh - 192px) / 3);
+}
+
+.height-4-1 {
+  height: calc((100vh - 172px) / 4);
+}
+
 </style>
