@@ -122,8 +122,14 @@ export default {
   background: transparent !important;
 }
 
+.md-container {
+  padding-bottom: 32px !important;
+  margin-bottom: 0px !important;
+}
+
 .md-content {
   /* margin-top: 32px !important; */
+  padding-bottom: 0px !important;
   margin-bottom: 0px !important;
 }
 

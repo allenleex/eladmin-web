@@ -346,7 +346,7 @@ import wurenji from '@/assets/img/wurenji.png'
 export default {
   name: 'DemoZCTZQD',
   data: () => ({
-    showSidepanel: true,
+    showSidepanel: false,
     wurenji: wurenji,
     initial: 'NULL',
     type: null,

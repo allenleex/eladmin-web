@@ -2,9 +2,10 @@
   <div class="navbar">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+    <md-button class="md-raised md-accent" style="margin-left: 1rem;" @click="goToHelpPage"><md-icon>info</md-icon> 使用说明</md-button>
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <md-button class="md-raised md-accent"><md-icon>info</md-icon> 使用说明</md-button>
+        <!-- <md-button class="md-raised md-accent"><md-icon>info</md-icon> 使用说明</md-button> -->
         <!-- <search id="header-search" class="right-menu-item" /> -->
         <!-- <el-tooltip content="项目文档" effect="dark" placement="bottom">
           <Doc class="right-menu-item hover-effect" />
@@ -83,6 +84,13 @@ export default {
     }
   },
   methods: {
+    goToHelpPage() {
+      // 核心跳转代码
+      this.$router.push('/demo/help/index') // 直接路径跳转[3,6](@ref)
+
+      // 或使用命名路由（推荐）
+      // this.$router.push({ name: 'HelpPage' }); // 需在路由配置中定义name[4,6](@ref)
+    },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
