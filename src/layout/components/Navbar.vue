@@ -4,6 +4,7 @@
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device!=='mobile'">
+        <md-button class="md-raised md-accent"><md-icon>info</md-icon> 使用说明</md-button>
         <!-- <search id="header-search" class="right-menu-item" /> -->
         <!-- <el-tooltip content="项目文档" effect="dark" placement="bottom">
           <Doc class="right-menu-item hover-effect" />

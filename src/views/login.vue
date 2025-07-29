@@ -2,7 +2,7 @@
   <div class="login" :style="'background-image:url('+ Background +');'">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" label-position="left" label-width="0px" class="login-form">
       <h3 class="title">
-        资产采集系统
+        <img :src="logo" class="login-logo"> 资产采集系统
       </h3>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
@@ -47,12 +47,14 @@ import Config from '@/settings'
 import { getCodeImg } from '@/api/login'
 import Cookies from 'js-cookie'
 import qs from 'qs'
-import Background from '@/assets/images/background.jpeg'
+import Background from '@/assets/images/bg04.jpg'
+import Logo from '@/assets/images/logo.png'
 export default {
   name: 'Login',
   data() {
     return {
       Background: Background,
+      logo: Logo,
       codeUrl: '',
       cookiePass: '',
       loginForm: {
@@ -176,6 +178,8 @@ export default {
     background-size: cover;
   }
   .title {
+    font-size: 24px;
+    font-weight: 800;
     margin: 0 auto 30px auto;
     text-align: center;
     color: #222222;
@@ -211,5 +215,10 @@ export default {
       cursor: pointer;
       vertical-align:middle
     }
+  }
+  .login-logo {
+    display: inline;
+    width: 32px;
+    height: 32px;
   }
 </style>
