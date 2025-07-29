@@ -140,7 +140,7 @@ export default {
           x: 'center',
           y: 'bottom',
           padding: [0, 0, 0, 0],
-          itemGap: 10,
+          itemGap: 20,
           itemHeight: 9,
           itemWidth: 9,
           textStyle: {

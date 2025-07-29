@@ -84,7 +84,7 @@ export default {
             itemStyle: {
               color: '#4CC9F0'
             },
-            barWidth: 15
+            barWidth: 8
           },
           {
             name: '过期证书',
@@ -93,7 +93,7 @@ export default {
             itemStyle: {
               color: '#4361EE'
             },
-            barWidth: 15
+            barWidth: 8
           },
           {
             name: '吊销证书',
@@ -102,7 +102,7 @@ export default {
             itemStyle: {
               color: '#FF6B35'
             },
-            barWidth: 15
+            barWidth: 8
           }
         ],
         legend: {
@@ -111,7 +111,7 @@ export default {
           x: 'center',
           y: 'bottom',
           padding: [0, 0, 0, 0],
-          itemGap: 10,
+          itemGap: 20,
           itemHeight: 9,
           itemWidth: 9,
           textStyle: {
