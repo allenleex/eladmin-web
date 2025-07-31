@@ -33,20 +33,17 @@ export const constantRouterMap = [
   },
   {
     path: '/',
+    // component: (resolve) => require(['@/views/material/index'], resolve)
+    component: Layout
+  },
+  {
+    path: '/offline',
     component: Layout,
-    redirect: '/demo',
+    hidden: true,
     children: [
       {
-        path: 'demo',
-        component: (resolve) => require(['@/views/demo'], resolve),
-        name: 'Demo',
-        meta: { title: 'Demo', icon: 'list', affix: true, noCache: true }
-      },
-      {
-        path: 'dashboard',
-        component: (resolve) => require(['@/views/home'], resolve),
-        name: 'Dashboard',
-        meta: { title: '仪表盘', icon: 'index', affix: true, noCache: true }
+        path: 'index',
+        component: (resolve) => require(['@/views/material/index'], resolve)
       }
     ]
   },
