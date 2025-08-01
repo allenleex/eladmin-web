@@ -2,23 +2,9 @@
   <div>
     <material-navbar :sidebar-visible="sidebarVisible" @toggle-sidebar="toggleSidebar" :rightbar-visible="rightbarVisible" @toggle-rightbar="toggleRightbar" />
     <material-sidebar :md-active="sidebarVisible" @update:mdActive="sidebarVisible = $event" />
-    <material-rightbar :md-active="rightbarVisible" @update:mdActive="rightbarVisible = $event" />
+    <!-- <material-rightbar :md-active="rightbarVisible" @update:mdActive="rightbarVisible = $event" /> -->
     <div class="md-container">
-      <md-content>
-        <div class="md-layout md-gutter">
-          <div class="md-layout-item md-size-20">
-            <md-content><material-menu /></md-content>
-          </div>
-          <div class="md-layout-item">
-            <md-content>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et!
-              Earum magnam,
-              similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo,
-              neque.
-            </md-content>
-          </div>
-        </div>
-      </md-content>
+      <material-demo/>
     </div>
   </div>
 </template>
@@ -28,10 +14,11 @@ import MaterialNavbar from './navbar'
 import MaterialSidebar from './sidebar'
 import MaterialRightbar from './rightbar'
 import MaterialMenu from './menu'
+import MaterialDemo from './demo'
 export default {
   name: 'MaterialLayout',
   components: {
-    MaterialNavbar, MaterialSidebar, MaterialMenu, MaterialRightbar
+    MaterialNavbar, MaterialSidebar, MaterialMenu, MaterialRightbar, MaterialDemo
   },
   data: () => ({
     sidebarVisible: false,

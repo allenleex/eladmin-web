@@ -29,9 +29,11 @@ import './router/index' // permission control
 // Material UI
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-// import 'vue-material/dist/theme/default.css' // light-mode
+import 'vue-material/dist/theme/default.css' // light-mode
 // import 'vue-material/dist/theme/default-dark.css' // dark-mode
-import './assets/styles/black-orange-light.css' // light-mode
+// import 'vue-material/dist/theme/black-green-light.css' // light-mode
+// import 'vue-material/dist/theme/black-green-dark.css' // dark-mode
+// import './assets/styles/black-orange-light.css' // light-mode
 // import './assets/styles/black-orange-dark.css' // dark-mode
 Vue.use(VueMaterial)
 

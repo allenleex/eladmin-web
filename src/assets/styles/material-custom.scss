@@ -5,7 +5,13 @@
 }
 
 .md-content {
+//   border: 1px dotted green;
   margin-bottom: 40px !important;
+}
+
+.md-layout {
+//   border: 1px dotted red;
+  margin-bottom: 10px !important;
 }
 
 .md-block {
@@ -27,7 +33,7 @@
 }
 
 .md-dialog-container {
-  border-radius: 20px !important;
+  border-radius: 0px !important;
 }
 
 .md-dialog-title {
@@ -35,3 +41,9 @@
   padding: 24px 24px;
   font-weight: bold !important;
 }
+
+.md-subheading {
+  margin: 0.5em 0;
+  display: block;
+}
+

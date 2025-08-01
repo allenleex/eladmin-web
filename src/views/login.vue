@@ -218,7 +218,7 @@ export default {
   .login-card {
     width: 100%;
     max-width: 480px;
-    border-radius: 20px;
+    border-radius: 0px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 
