@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
-    <md-app md-waterfall md-mode="fixed-last">
-      <md-app-toolbar class="md-large md-dense md-primary">
+    <md-app md-waterfall>
+      <md-app-toolbar class="md-dense md-primary">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
             <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
@@ -14,14 +14,6 @@
               <md-icon>logout</md-icon>
             </md-button>
           </div>
-        </div>
-        <div class="md-toolbar-row">
-          <md-tabs class="md-primary">
-            <md-tab id="tab-home" md-label="首页"></md-tab>
-            <md-tab id="tab-a" md-label="功能页面"></md-tab>
-            <md-tab id="tab-b" md-label="功能页面"></md-tab>
-            <md-tab id="tab-c" md-label="功能页面"></md-tab>
-          </md-tabs>
         </div>
         <md-dialog-confirm :md-active.sync="confirm" md-title="提示" md-content="确定注销并退出系统吗？" md-confirm-text="确定"
           md-cancel-text="取消" @md-cancel="onCancel" @md-confirm="onConfirm" />
@@ -37,7 +29,7 @@
             </md-button>
           </div>
         </md-toolbar>
-
+        <md-divider></md-divider>
         <md-list>
           <md-list-item>
             <md-icon>move_to_inbox</md-icon>
@@ -62,6 +54,12 @@
       </md-app-drawer>
 
       <md-app-content class="main">
+        <md-tabs class="md-default">
+          <md-tab id="tab-home" md-label="首页"></md-tab>
+          <md-tab id="tab-a" md-label="功能页面"></md-tab>
+          <md-tab id="tab-b" md-label="功能页面"></md-tab>
+          <md-tab id="tab-c" md-label="功能页面"></md-tab>
+        </md-tabs>
         <material-demo />
       </md-app-content>
     </md-app>
@@ -97,14 +95,20 @@ export default {
 
 <style lang="scss" scoped>
 .md-app-drawer {
-  margin-top: 48px;
-  width: 240px;
-  max-width: calc(100vw - 125px);
+  width: calc(100vw / 6);
+  min-width: calc(100vw / 6);
+  max-width: calc(100vw / 3);
+  margin-top: -15px;
+  padding-top: 48px;
 }
 
 .md-tabs {
   width: 100%;
-  margin: 0 0 0 5px;
+  margin: 0 0;
+}
+
+.md-content {
+  padding: 0 0 !important;
 }
 
 .main {
