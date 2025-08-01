@@ -3,59 +3,37 @@
   <div class="login">
     <md-card class="login-card">
       <md-card-header>
-        <h1>后台管理系统</h1>
+        <md-icon class="header-icon">verified_user</md-icon>
+        <h2>后台管理系统</h2>
       </md-card-header>
 
       <md-card-content>
-        <!-- Tab 切换组件 -->
-        <md-tabs v-model="activeTab" class="login-tabs" @md-changed="handleTabChange">
-          <!-- 在线登录 Tab -->
-          <md-tab id="online" md-label="在线登录">
-            <form class="login-form">
-              <md-field>
-                <label>账号</label>
-                <md-input v-model="loginForm.username" required placeholder="请输入账号"></md-input>
-              </md-field>
-
-              <md-field>
-                <label>密码</label>
-                <md-input v-model="loginForm.password" type="password" required placeholder="请输入密码"
-                  @keyup.enter.native="handleLogin"></md-input>
-              </md-field>
-
-              <div class="captcha-container">
-                <md-field class="captcha-input">
-                  <label>验证码</label>
-                  <md-input v-model="loginForm.code" required placeholder="请输入验证码"
-                    @keyup.enter.native="handleLogin"></md-input>
-                  <md-icon>verified_user</md-icon>
-                </md-field>
-
-                <div class="login-code">
-                  <img :src="codeUrl" alt="验证码" @click="getCode" class="captcha-img">
-                </div>
-              </div>
-
-              <div class="checkbox-group">
-                <md-checkbox v-model="loginForm.rememberMe">记住我</md-checkbox>
-              </div>
-            </form>
-          </md-tab>
-
-          <!-- 离线登录 Tab -->
-          <md-tab id="offline" md-label="离线登录">
-            <div class="offline-content">
-              <md-icon class="offline-icon">wifi_off</md-icon>
-              <h3>离线登录模式</h3>
-              <p>在此模式下，您将直接访问本地静态页面，无需连接网络</p>
-              <p>适合在无网络环境或测试场景下使用</p>
-            </div>
-          </md-tab>
-        </md-tabs>
+        <form class="login-form">
+          <md-field>
+            <label>账号</label>
+            <md-input v-model="loginForm.username" required placeholder="请输入账号"></md-input>
+          </md-field>
+          <md-field>
+            <label>密码</label>
+            <md-input v-model="loginForm.password" type="password" required placeholder="请输入密码"
+              @keyup.enter.native="handleLogin"></md-input>
+          </md-field>
+          <md-field>
+            <label>验证码</label>
+            <md-input v-model="loginForm.code" required placeholder="请输入验证码" @keyup.enter.native="handleLogin"></md-input>
+            <img :src="codeUrl" alt="验证码" @click="getCode" class="captcha-img">
+          </md-field>
+          <div class="checkbox-group">
+            <md-checkbox v-model="loginForm.rememberMe">记住我</md-checkbox>
+          </div>
+        </form>
       </md-card-content>
 
       <md-card-actions>
-        <md-button class="md-raised md-primary login-button" @click="handleLogin" :disabled="loading">
+        <md-button class="md-raised md-ripple md-default login-button" @click="resetForm">
+          <span v-if="!loading">重置</span>
+        </md-button>
+        <md-button class="md-raised md-ripple md-primary login-button" @click="handleLogin" :disabled="loading">
           <span v-if="!loading">登录</span>
           <span v-else>登录中...</span>
         </md-button>
@@ -84,7 +62,6 @@ export default {
   data() {
     return {
       Background: Background,
-      activeTab: 'online', // 默认激活在线登录Tab
       codeUrl: '',
       cookiePass: '',
       loginForm: {
@@ -154,14 +131,15 @@ export default {
         code: ''
       }
     },
-    handleLogin() {
-      // 根据当前激活的Tab执行不同逻辑
-      if (this.activeTab === 'offline') {
-        // 离线登录逻辑
-        this.$router.push('/offline/index')
-        return
+    resetForm() {
+      this.loginForm = {
+        username: '',
+        password: '',
+        rememberMe: rememberMe === undefined ? false : Boolean(rememberMe),
+        code: ''
       }
-
+    },
+    handleLogin() {
       // 在线登录逻辑
       if (!this.loginForm.username) {
         this.$toast.error('用户名不能为空')
@@ -239,8 +217,8 @@ export default {
 
   .login-card {
     width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
+    max-width: 480px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 
@@ -248,6 +226,12 @@ export default {
       // background: linear-gradient(45deg, #FFA113, #BF127D);
       padding: 12px 8px;
       text-align: center;
+
+      .header-icon {
+        font-size: 60px !important;
+        color: #CCC;
+        margin: 30px 0;
+      }
 
       .md-title {
         font-size: 24px;
@@ -257,92 +241,11 @@ export default {
     }
 
     .md-card-content {
-      padding: 0;
-    }
-  }
-
-  .login-tabs {
-    padding: 20px;
-
-    .md-tab {
-      height: 300px;
-      max-height: 300px;
-      padding: 15px 0px;
+      padding: 0px 30px;
     }
 
-    .login-form {
-      .md-field {
-        margin-bottom: 20px;
-
-        label {
-          color: #555;
-        }
-
-        .md-icon {
-          color: #2196F3;
-        }
-      }
-
-      .captcha-container {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
-
-        .captcha-input {
-          flex: 1;
-        }
-
-        .login-code {
-          height: 56px;
-          border-radius: 4px;
-          overflow: hidden;
-          box-shadow: none;
-
-          .captcha-img {
-            height: 100%;
-            padding: 10px 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            background-color: transparent;
-
-            &:hover {
-              transform: scale(1.05);
-            }
-          }
-        }
-      }
-
-      .checkbox-group {
-        margin-bottom: 0px;
-
-        .md-checkbox {
-          margin: 0;
-        }
-      }
-    }
-
-    .offline-content {
-      text-align: center;
-      padding: 20px 0;
-
-      .offline-icon {
-        font-size: 128px !important;
-        color: #888888;
-        margin: 50px 0;
-      }
-
-      h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
-        color: #333;
-      }
-
-      p {
-        color: #666;
-        line-height: 1.6;
-        margin-bottom: 10px;
-      }
+    .md-card-actions {
+      padding: 20px 30px;
     }
   }
 
