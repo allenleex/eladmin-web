@@ -1,101 +1,70 @@
 <template>
   <div>
-    <md-toolbar class="md-default">
-      <md-button class="md-icon-button" @click="showNavigation = true">
-        <md-icon>menu</md-icon>
-      </md-button>
-      <span class="md-title">My Title</span>
-
-      <div class="md-toolbar-section-end">
-        <md-button @click="showSidepanel = true">Favorites</md-button>
-      </div>
-    </md-toolbar>
-
-    <md-drawer :md-active.sync="showNavigation" md-swipeable>
-      <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">My App name</span>
-      </md-toolbar>
-
-      <md-list>
-        <md-list-item>
-          <md-icon>move_to_inbox</md-icon>
-          <span class="md-list-item-text">Inbox</span>
-        </md-list-item>
-
-        <md-list-item>
-          <md-icon>send</md-icon>
-          <span class="md-list-item-text">Sent Mail</span>
-        </md-list-item>
-
-        <md-list-item>
-          <md-icon>delete</md-icon>
-          <span class="md-list-item-text">Trash</span>
-        </md-list-item>
-
-        <md-list-item>
-          <md-icon>error</md-icon>
-          <span class="md-list-item-text">Spam</span>
-        </md-list-item>
-      </md-list>
-    </md-drawer>
-
-    <md-drawer class="md-right" :md-active.sync="showSidepanel">
-      <md-toolbar class="md-transparent" md-elevation="0">
-        <span class="md-title">Favorites</span>
-      </md-toolbar>
-
-      <md-list>
-        <md-list-item>
-          <span class="md-list-item-text">Abbey Christansen</span>
-
-          <md-button class="md-icon-button md-list-action">
-            <md-icon class="md-primary">chat_bubble</md-icon>
-          </md-button>
-        </md-list-item>
-
-        <md-list-item>
-          <span class="md-list-item-text">Alex Nelson</span>
-
-          <md-button class="md-icon-button md-list-action">
-            <md-icon class="md-primary">chat_bubble</md-icon>
-          </md-button>
-        </md-list-item>
-
-        <md-list-item>
-          <span class="md-list-item-text">Mary Johnson</span>
-
-          <md-button class="md-icon-button md-list-action">
-            <md-icon>chat_bubble</md-icon>
-          </md-button>
-        </md-list-item>
-      </md-list>
-    </md-drawer>
-
+    <material-navbar :sidebar-visible="sidebarVisible" @toggle-sidebar="toggleSidebar" :rightbar-visible="rightbarVisible" @toggle-rightbar="toggleRightbar" />
+    <material-sidebar :md-active="sidebarVisible" @update:mdActive="sidebarVisible = $event" />
+    <material-rightbar :md-active="rightbarVisible" @update:mdActive="rightbarVisible = $event" />
     <div class="md-container">
       <md-content>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo, neque.
+        <div class="md-layout md-gutter">
+          <div class="md-layout-item md-size-20">
+            <md-content><material-menu /></md-content>
+          </div>
+          <div class="md-layout-item">
+            <md-content>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et!
+              Earum magnam,
+              similique, quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime? Quae non explicabo,
+              neque.
+            </md-content>
+          </div>
+        </div>
       </md-content>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'Temporary',
-    data: () => ({
-      showNavigation: false,
-      showSidepanel: false
-    })
+import MaterialNavbar from './navbar'
+import MaterialSidebar from './sidebar'
+import MaterialRightbar from './rightbar'
+import MaterialMenu from './menu'
+export default {
+  name: 'MaterialLayout',
+  components: {
+    MaterialNavbar, MaterialSidebar, MaterialMenu, MaterialRightbar
+  },
+  data: () => ({
+    sidebarVisible: false,
+    rightbarVisible: false
+  }),
+  methods: {
+    toggleSidebar() {
+      this.sidebarVisible = !this.sidebarVisible
+    },
+    toggleRightbar() {
+      this.rightbarVisible = !this.rightbarVisible
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .md-drawer {
-    width: 230px;
-    max-width: calc(100vw - 125px);
+.md-layout-item {
+  &:after {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: md-get-palette-color(green, 200);
+    content: " ";
   }
+}
 
-  .md-content {
-    padding: 16px;
-  }
+.toolbar-actions {
+  display: flex;
+  max-width: 100px;
+}
+
+.md-content {
+  padding: 16px;
+}
 </style>

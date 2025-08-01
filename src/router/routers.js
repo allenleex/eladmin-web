@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '../layout/index'
+import MaterialLayout from '../views/material/index'
 
 Vue.use(Router)
 
@@ -34,18 +35,7 @@ export const constantRouterMap = [
   {
     path: '/',
     // component: (resolve) => require(['@/views/material/index'], resolve)
-    component: Layout
-  },
-  {
-    path: '/offline',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: 'index',
-        component: (resolve) => require(['@/views/material/index'], resolve)
-      }
-    ]
+    component: MaterialLayout
   },
   {
     path: '/user',
