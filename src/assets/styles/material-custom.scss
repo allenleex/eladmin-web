@@ -1,27 +1,37 @@
-@import 'variables';
+@import "variables";
 
 .md-container {
-    padding: 20px !important;
+  padding: 20px !important;
 }
 
 .md-content {
-    margin-bottom: 40px !important;
+  margin-bottom: 40px !important;
 }
 
 .md-block {
-    display: block !important;
+  display: block !important;
 }
 
 .md-input {
-    padding: 1rem 0.5rem !important;
+  padding: 1rem 0.5rem !important;
 }
 
 .md-field {
-    width: 100%;
-    min-height: 48px;
-    margin: 10px 0 !important;
-    padding-top: 10px;
-    display: flex;
-    position: relative;
-    font-family: inherit;
+  width: 100%;
+  min-height: 48px;
+  margin: 10px 0 !important;
+  padding-top: 10px;
+  display: flex;
+  position: relative;
+  font-family: inherit;
+}
+
+.md-dialog-container {
+  border-radius: 20px !important;
+}
+
+.md-dialog-title {
+  margin-bottom: 20px;
+  padding: 24px 24px;
+  font-weight: bold !important;
 }
