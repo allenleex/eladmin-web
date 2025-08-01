@@ -24,7 +24,20 @@
     </div>
 
     <div class="md-layout">
-      <div class="md-layout-item md-size-50"><md-content>111</md-content></div>
+      <div class="md-layout-item md-size-50"><md-content class="typography">
+          <span class="md-display-4">Display 4</span>
+          <span class="md-display-3">Display 3</span>
+          <span class="md-display-2">Display 2</span>
+          <span class="md-display-1">Display 1</span>
+          <span class="md-headline">Headline</span>
+          <span class="md-title">Title</span>
+          <span class="md-subheading">Subheading</span>
+          <span class="md-body-2">Body 2</span>
+          <span class="md-body-1">Body 1</span>
+          <span class="md-caption">Caption</span>
+          <router-link to="/ui-elements/typography">Links</router-link>
+          <md-button>Buttons</md-button>
+        </md-content></div>
       <div class="md-layout-item md-size-50">
         <md-content>
           <form novalidate class="" @submit.prevent="validateUser">
@@ -253,4 +266,9 @@ export default {
   right: 0;
   left: 0;
 }
+
+.typography > * {
+    margin: .5em 0;
+    display: block;
+  }
 </style>

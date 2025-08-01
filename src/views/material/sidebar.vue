@@ -1,11 +1,15 @@
 <template>
-  <md-drawer class="sidebar" :md-active="mdActive" @update:mdActive="$emit('update:mdActive', $event)" md-swipeable>
-    <md-toolbar class="md-primary" md-elevation="0">
-      <md-icon>menu</md-icon>
-      <span class="md-title">功能导航</span>
+  <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
+    <md-toolbar class="md-transparent" md-elevation="0">
+      <span>Navigation</span>
+      <div class="md-toolbar-section-end">
+        <md-button class="md-icon-button md-dense" @click="toggleMenu">
+          <md-icon>keyboard_arrow_left</md-icon>
+        </md-button>
+      </div>
     </md-toolbar>
     <material-menu />
-  </md-drawer>
+  </md-app-drawer>
 </template>
 
 <script>
@@ -15,33 +19,20 @@ export default {
   components: {
     MaterialMenu
   },
-  props: ['mdActive'], // 接收父组件传递的状态
-  data: () => ({}),
-  methods: {}
+  data: () => ({
+    menuVisible: true
+  }),
+  methods: {
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.sidebar {
-  width: 240px;
-  max-width: calc(100vw / 3);
-
-  .md-icon {
-    margin: 0 1rem 0 0 !important;
+.md-drawer {
+    width: 240px;
+    max-width: calc(100vw / 3);
   }
-
-  .md-toolbar .md-button~.md-title,
-  .md-toolbar .md-icon~.md-title {
-    margin-left: 0px !important;
-  }
-
-  .md-button {
-    width: 100%;
-    text-align: left;
-  }
-
-  .md-button .md-ripple {
-    align-items: left;
-  }
-}
 </style>

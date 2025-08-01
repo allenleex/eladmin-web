@@ -1,6 +1,5 @@
 <template>
-  <!-- <md-drawer class="rightbar" :md-active="mdActive" @update:mdActive="$emit('update:mdActive', $event)" md-swipeable> -->
-  <md-drawer class="md-right rightbar" :md-active="mdActive" @update:mdActive="$emit('update:mdActive', $event)">
+  <md-drawer class="md-right" :md-active="mdActive" @update:mdActive="$emit('update:mdActive', $event)">
     <md-toolbar class="md-primary" md-elevation="0">
       <md-icon>settings</md-icon>
       <span class="md-title">系统设置</span>

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '../layout/index'
-import MaterialLayout from '../views/material/index'
+// import MaterialLayout from '../views/material/index'
+import MaterialTest from '../views/material/test'
 
 Vue.use(Router)
 
@@ -35,7 +36,7 @@ export const constantRouterMap = [
   {
     path: '/',
     // component: (resolve) => require(['@/views/material/index'], resolve)
-    component: MaterialLayout
+    component: MaterialTest // MaterialLayout
   },
   {
     path: '/user',

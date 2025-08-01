@@ -1,17 +1,21 @@
 @import "variables";
 
+.md-app {
+  max-height: 100vh;
+}
+
 .md-container {
   padding: 20px !important;
 }
 
 .md-content {
-//   border: 1px dotted green;
+  //   border: 1px dotted green;
   margin-bottom: 40px !important;
 }
 
 .md-layout {
-//   border: 1px dotted red;
-  margin-bottom: 10px !important;
+  //   border: 1px dotted red;
+  margin-bottom: 0px !important;
 }
 
 .md-block {
@@ -46,4 +50,3 @@
   margin: 0.5em 0;
   display: block;
 }
-
