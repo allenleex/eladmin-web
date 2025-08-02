@@ -200,7 +200,7 @@ export default {
       border: none;
       color: #fff;
       background: var(--md-theme-default-primary, #448aff);
-      padding: 0 15px 0 20px;
+      padding: 0 20px 0 20px;
       font-size: 14px;
       margin-left: 0px;
       margin-top: 0px;

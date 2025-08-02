@@ -10,8 +10,31 @@ export const constantRouterMap = [
   {
     path: '/',
     // component: (resolve) => require(['@/views/material/index'], resolve)
-    component: Layout // MaterialTest // MaterialLayout
+    component: Layout, // MaterialTest // MaterialLayout,
+    redirect: '/demo',
+    children: [
+      {
+        path: 'demo',
+        component: (resolve) => require(['@/views/material/demo'], resolve),
+        name: '首页',
+        meta: { title: '首页', icon: 'index', affix: true, noCache: true }
+      }
+    ]
   },
+  // OLD-VERION
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/dashboard',
+  //   children: [
+  //     {
+  //       path: 'dashboard',
+  //       component: (resolve) => require(['@/views/home'], resolve),
+  //       name: 'Dashboard',
+  //       meta: { title: '首页', icon: 'index', affix: true, noCache: true }
+  //     }
+  //   ]
+  // },
   { path: '/login',
     meta: { title: '登录', noCache: true },
     component: (resolve) => require(['@/views/login'], resolve),
