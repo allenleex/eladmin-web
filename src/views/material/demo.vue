@@ -1,6 +1,6 @@
 <template>
   <div class="md-container">
-    <md-content>
+    <!-- <md-content>
       <md-steppers md-alternative>
         <md-step id="first" md-label="First Step">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
@@ -36,7 +36,7 @@
             nulla.</p>
         </md-step>
       </md-steppers>
-    </md-content>
+    </md-content> -->
 
     <md-content>
       <md-table v-model="people" md-card @md-selected="onSelect">
@@ -59,8 +59,11 @@
           <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>
         </md-table-row>
       </md-table>
-      <p>Selected:</p>
-      {{ selected }}
+      <p>
+        <md-chip v-for="(item, index) in selected" :key="index" md-clickable class="md-default">
+          {{ item.name }}
+        </md-chip>
+      </p>
     </md-content>
 
     <div class="md-layout md-gutter">

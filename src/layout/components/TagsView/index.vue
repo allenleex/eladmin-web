@@ -252,23 +252,23 @@ export default {
 .tags-view-wrapper {
   .tags-view-item {
     .el-icon-close {
-      width: 24px;
-      height: 24px;
-      vertical-align: 5px;
+      width: 20px;
+      height: 20px;
+      vertical-align: 2px;
       border-radius: 50%;
       text-align: center;
       transition: all .3s cubic-bezier(.645, .045, .355, 1);
       transform-origin: 100% 50%;
 
       &:before {
-        transform: scale(.8);
+        transform: scale(0.8);
         display: inline-block;
-        vertical-align: -5px;
+        vertical-align: -3px;
       }
 
       &:hover {
-        background-color: #b4bccc;
-        color: #fff;
+        background-color: #eee;
+        color: #000;
       }
     }
   }

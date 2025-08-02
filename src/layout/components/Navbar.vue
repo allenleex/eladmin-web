@@ -55,12 +55,13 @@
       </span>
       <div v-if="device !== 'mobile'" class="md-toolbar-section-end">
         <!-- 搜索 -->
-        <md-button class="md-icon-button" @click=";">
+         <search id="header-search" />
+        <!-- <md-button class="md-icon-button" @click=";">
           <span class="material-icons">
             search
           </span>
           <md-tooltip md-direction="bottom">搜索</md-tooltip>
-        </md-button>
+        </md-button> -->
         <!-- 项目文档 -->
         <md-button class="md-icon-button" @click=";">
           <span class="material-icons">

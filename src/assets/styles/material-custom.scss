@@ -30,11 +30,26 @@
 .md-field {
   width: 100%;
   min-height: 48px;
-  margin: 10px 0 !important;
+  margin: 20px 0 !important;
   padding-top: 10px;
   display: flex;
   position: relative;
   font-family: inherit;
+}
+
+.md-field .md-input,
+.md-field .md-textarea {
+  font-family: inherit;
+  font-size: 16px;
+  height: 48px;
+  line-height: 48px;
+  padding: 4px 0;
+  display: block;
+  flex: 1;
+  border: none;
+  background: none;
+  transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-property: font-size, padding-top, color;
 }
 
 .md-dialog-container {
@@ -81,4 +96,3 @@
     text-decoration: none;
   }
 }
-
