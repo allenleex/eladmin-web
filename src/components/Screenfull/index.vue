@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="click" />
-  </div>
+  <md-button class="md-icon-button" @click="click">
+    <span class="material-icons">
+      fullscreen
+    </span>
+    <md-tooltip md-direction="bottom">全屏缩放</md-tooltip>
+  </md-button>
 </template>
 
 <script>
@@ -52,7 +55,8 @@ export default {
 .screenfull-svg {
   display: inline-block;
   cursor: pointer;
-  fill: #5a5e66;;
+  fill: #5a5e66;
+  ;
   width: 20px;
   height: 20px;
   vertical-align: 10px;

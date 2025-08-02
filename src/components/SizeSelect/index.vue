@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown trigger="click" @command="handleSetSize">
+  <!-- <el-dropdown trigger="click" @command="handleSetSize">
     <div>
       <svg-icon class-name="size-icon" icon-class="size" />
     </div>
@@ -9,7 +9,13 @@
           item.label }}
       </el-dropdown-item>
     </el-dropdown-menu>
-  </el-dropdown>
+  </el-dropdown> -->
+  <md-button class="md-icon-button" @click=";">
+    <span class="material-icons">
+      auto_awesome_mosaic
+    </span>
+    <md-tooltip md-direction="bottom">布局设置</md-tooltip>
+  </md-button>
 </template>
 
 <script>

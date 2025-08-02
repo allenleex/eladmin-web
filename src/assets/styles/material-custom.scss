@@ -50,3 +50,34 @@
   margin: 0.5em 0;
   display: block;
 }
+
+.md-tooltip {
+  // height: 48px;
+  // line-height: 48px;
+  // font-size: 16px !important;
+  // padding: 0.5rem 0.5rem !important;
+  background-color: #000000 !important;
+}
+
+// element ui
+
+.el-submenu__title {
+  font-size: 16px !important;
+  padding: 0 20px;
+  cursor: pointer;
+  -webkit-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  box-sizing: border-box;
+}
+
+.el-dropdown-menu__item,
+.el-menu-item {
+  font-size: 16px !important;
+  padding: 0 20px;
+  cursor: pointer;
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+}
+

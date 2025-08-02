@@ -20,9 +20,8 @@
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
-        <md-toolbar class="md-transparent" md-elevation="0">
-          <span class="md-title md-primary">Navigation</span>
-
+        <md-toolbar class="md-default" md-elevation="0">
+          <span class="md-title">Navigation</span>
           <div class="md-toolbar-section-end">
             <md-button class="md-icon-button md-dense" @click="toggleMenu">
               <md-icon>keyboard_arrow_left</md-icon>
@@ -96,10 +95,9 @@ export default {
 <style lang="scss" scoped>
 .md-app-drawer {
   width: calc(100vw / 6);
-  min-width: calc(100vw / 6);
   max-width: calc(100vw / 3);
-  margin-top: -15px;
-  padding-top: 48px;
+  margin-top: 32px;
+  border: none !important;
 }
 
 .md-tabs {
@@ -113,5 +111,10 @@ export default {
 
 .main {
   background-color: #EEEEEE !important;
+}
+
+.md-title {
+  height: 48px;
+  line-height: 48px;
 }
 </style>

@@ -1,5 +1,43 @@
 <template>
   <div class="md-container">
+    <md-content>
+      <md-steppers md-alternative>
+        <md-step id="first" md-label="First Step">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+        </md-step>
+        <md-step id="second" md-label="Second Step">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+        </md-step>
+        <md-step id="third" md-label="Third Step">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque
+            quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat
+            nulla.</p>
+        </md-step>
+      </md-steppers>
+    </md-content>
+
     <div class="md-layout md-gutter">
       <div class="md-layout-item"><md-content>
           <div>
@@ -23,20 +61,55 @@
         </md-content></div>
     </div>
 
-    <div class="md-layout">
-      <div class="md-layout-item md-size-50"><md-content class="typography">
-          <span class="md-display-4">Display 4</span>
-          <span class="md-display-3">Display 3</span>
-          <span class="md-display-2">Display 2</span>
-          <span class="md-display-1">Display 1</span>
-          <span class="md-headline">Headline</span>
-          <span class="md-title">Title</span>
-          <span class="md-subheading">Subheading</span>
-          <span class="md-body-2">Body 2</span>
-          <span class="md-body-1">Body 1</span>
-          <span class="md-caption">Caption</span>
-          <router-link to="/ui-elements/typography">Links</router-link>
-          <md-button>Buttons</md-button>
+    <div class="md-layout md-gutter">
+      <div class="md-layout-item md-size-50"><md-content>
+          <div>
+            <md-field>
+              <label>Initial Value</label>
+              <md-input v-model="initial"></md-input>
+            </md-field>
+
+            <md-field>
+              <label>Initial Value (Read Only)</label>
+              <md-input v-model="initial" readonly></md-input>
+            </md-field>
+
+            <md-field>
+              <label>Type here!</label>
+              <md-input v-model="type"></md-input>
+              <span class="md-helper-text">Helper text</span>
+            </md-field>
+
+            <md-field>
+              <label>With label</label>
+              <md-input v-model="withLabel" placeholder="A nice placeholder"></md-input>
+            </md-field>
+
+            <md-field md-inline>
+              <label>Inline</label>
+              <md-input v-model="inline"></md-input>
+            </md-field>
+
+            <md-field>
+              <label>Number</label>
+              <md-input v-model="number" type="number"></md-input>
+            </md-field>
+
+            <md-field>
+              <label>Textarea</label>
+              <md-textarea v-model="textarea"></md-textarea>
+            </md-field>
+
+            <md-field>
+              <label>Textarea with Autogrow</label>
+              <md-textarea v-model="autogrow" md-autogrow></md-textarea>
+            </md-field>
+
+            <md-field>
+              <label>Disabled</label>
+              <md-input v-model="disabled" disabled></md-input>
+            </md-field>
+          </div>
         </md-content></div>
       <div class="md-layout-item md-size-50">
         <md-content>
@@ -186,7 +259,15 @@ export default {
     },
     userSaved: false,
     sending: false,
-    lastUser: null
+    lastUser: null,
+    initial: 'Initial Value',
+    type: null,
+    withLabel: null,
+    inline: null,
+    number: null,
+    textarea: null,
+    autogrow: null,
+    disabled: null
   }),
   validations: {
     form: {
@@ -266,9 +347,4 @@ export default {
   right: 0;
   left: 0;
 }
-
-.typography > * {
-    margin: .5em 0;
-    display: block;
-  }
 </style>

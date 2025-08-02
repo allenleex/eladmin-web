@@ -16,8 +16,6 @@ import './assets/styles/element-variables.scss'
 
 // global css
 import './assets/styles/index.scss'
-// global css
-import './assets/styles/material-custom.scss'
 
 import App from './App'
 import store from './store'
@@ -36,6 +34,9 @@ import 'vue-material/dist/theme/default.css' // light-mode
 // import './assets/styles/black-orange-light.css' // light-mode
 // import './assets/styles/black-orange-dark.css' // dark-mode
 Vue.use(VueMaterial)
+
+// cumstom scss
+import './assets/styles/material-custom.scss'
 
 Vue.use(checkPer)
 Vue.use(permission)
