@@ -1,16 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '../layout/index'
-// import MaterialLayout from '../views/material/index'
-// import MaterialTest from '../views/material/test'
 
 Vue.use(Router)
 
 export const constantRouterMap = [
   {
     path: '/',
-    // component: (resolve) => require(['@/views/material/index'], resolve)
-    component: Layout, // MaterialTest // MaterialLayout,
+    component: Layout,
     redirect: '/demo',
     children: [
       {
@@ -21,20 +18,6 @@ export const constantRouterMap = [
       }
     ]
   },
-  // OLD-VERION
-  // {
-  //   path: '/',
-  //   component: Layout,
-  //   redirect: '/dashboard',
-  //   children: [
-  //     {
-  //       path: 'dashboard',
-  //       component: (resolve) => require(['@/views/home'], resolve),
-  //       name: 'Dashboard',
-  //       meta: { title: '首页', icon: 'index', affix: true, noCache: true }
-  //     }
-  //   ]
-  // },
   { path: '/login',
     meta: { title: '登录', noCache: true },
     component: (resolve) => require(['@/views/login'], resolve),

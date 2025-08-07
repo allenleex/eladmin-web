@@ -57,6 +57,8 @@ export default {
           text: '1990 与 2015 年各国家人均寿命与 GDP'
         },
         legend: {
+          orient: 'vertical',
+          top: 'center',
           right: 10,
           data: ['1990', '2015']
         },
