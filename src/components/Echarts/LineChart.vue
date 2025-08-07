@@ -67,7 +67,7 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
-    setOptions({ xAxisData, a, b, c, legend } = {}) {
+    setOptions({ xAxisData, a, b, c } = {}) {
       this.chart.setOption({
         xAxis: {
           data: xAxisData || [],
@@ -103,7 +103,7 @@ export default {
           max: 'dataMax'
         },
         legend: {
-          data: legend
+          data: this.legend
         },
         series: [
           {
