@@ -55,7 +55,7 @@
       </span>
       <div v-if="device !== 'mobile'" class="md-toolbar-section-end">
         <!-- 搜索 -->
-         <search id="header-search" />
+         <!-- <search id="header-search" /> -->
         <!-- <md-button class="md-icon-button" @click=";">
           <span class="material-icons">
             search
@@ -63,16 +63,16 @@
           <md-tooltip md-direction="bottom">搜索</md-tooltip>
         </md-button> -->
         <!-- 项目文档 -->
-        <md-button class="md-icon-button" @click=";">
+        <!-- <md-button class="md-icon-button" @click=";">
           <span class="material-icons">
             article
           </span>
           <md-tooltip md-direction="bottom">项目文档</md-tooltip>
-        </md-button>
+        </md-button> -->
         <!-- 全屏缩放 -->
         <screenfull id="screenfull" />
         <!-- 布局设置 -->
-         <size-select id="size-select" class="right-menu-item hover-effect" />
+         <!-- <size-select id="size-select" class="right-menu-item hover-effect" /> -->
         <!-- <md-button class="md-icon-button" @click=";">
           <span class="material-icons">
             auto_awesome_mosaic

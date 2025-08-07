@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 0 15px;">
+  <div style="padding: 0 0;">
     <md-button class="md-icon-button" @click="toggleClick">
       <md-icon>menu</md-icon>
     </md-button>
