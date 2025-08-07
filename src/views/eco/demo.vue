@@ -38,7 +38,7 @@
       <!-- <md-progress-bar id="nprogress" v-if="loading" md-mode="indeterminate" class="md-accent" style="width:80%"></md-progress-bar> -->
       <!-- <md-progress-spinner v-if="loading" :md-diameter="30" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner> -->
     </div>
-    <div class="md-content" v-if="tableData.length > 0" style="margin: 10px 10px;">
+    <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <md-table v-model="tableData" md-sort="_id" md-sort-order="asc" md-card md-fixed-header>
         <md-table-toolbar>
           <p class="md-title">{{ this.responseText }}</p>
@@ -65,22 +65,24 @@
         </md-table-row>
       </md-table>
     </div>
-    <div class="md-content" v-if="tableData.length > 0" style="margin: 10px 10px;">
+    <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <div class="md-layout md-gutter">
-        <div class="md-layout-item">
+        <div class="md-layout-item md-size-50">
           <line-chart :chart-data="{
             xAxisData: tableData.map(item => item._id),
-            ua: lineChartData.ua,
-            ub: lineChartData.ub,
-            uc: lineChartData.uc
+            a: lineChartData.ua,
+            b: lineChartData.ub,
+            c: lineChartData.uc,
+            legend: ['ua', 'ub', 'uc']
           }" />
         </div>
-        <div class="md-layout-item">
+        <div class="md-layout-item md-size-50">
           <line-chart :chart-data="{
             xAxisData: tableData.map(item => item._id),
-            ua: lineChartData.ua,
-            ub: lineChartData.ub,
-            uc: lineChartData.uc
+            a: lineChartData.ia,
+            b: lineChartData.ib,
+            c: lineChartData.ic,
+            legend: ['ua', 'ub', 'uc']
           }" />
         </div>
       </div>
@@ -101,7 +103,10 @@ const chartData = {
   line: {
     ua: [],
     ub: [],
-    uc: []
+    uc: [],
+    ia: [],
+    ib: [],
+    ic: []
   }
 }
 
@@ -173,9 +178,15 @@ export default {
           this.lineChartData.ua = response.records.map(item => item.ua)
           this.lineChartData.ub = response.records.map(item => item.ub)
           this.lineChartData.uc = response.records.map(item => item.uc)
+          this.lineChartData.ia = response.records.map(item => item.ia)
+          this.lineChartData.ib = response.records.map(item => item.ib)
+          this.lineChartData.ic = response.records.map(item => item.ic)
           console.log("ua: ", response.records.map(item => item.ua))
           console.log("ub: ", response.records.map(item => item.ub))
           console.log("uc: ", response.records.map(item => item.uc))
+          console.log("ia: ", response.records.map(item => item.ia))
+          console.log("ib: ", response.records.map(item => item.ib))
+          console.log("ic: ", response.records.map(item => item.ic))
 
           // 保留文本显示
           this.responseText = `查询 [${response.database}] [${response.collection}] 成功，共加载 ${processedRecords.length} 条记录`

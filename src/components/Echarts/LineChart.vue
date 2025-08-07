@@ -28,6 +28,9 @@ export default {
     chartData: {
       type: Object,
       required: true
+    },
+    legend: {
+      type: Array
     }
   },
   data() {
@@ -64,7 +67,7 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
-    setOptions({ xAxisData, ua, ub, uc } = {}) {
+    setOptions({ xAxisData, a, b, c, legend } = {}) {
       this.chart.setOption({
         xAxis: {
           data: xAxisData || [],
@@ -100,11 +103,11 @@ export default {
           max: 'dataMax'
         },
         legend: {
-          data: ['ua', 'ub', 'uc']
+          data: legend
         },
         series: [
           {
-            name: 'ua',
+            name: 'a',
             itemStyle: {
               normal: {
                 color: '#FF005A',
@@ -116,12 +119,12 @@ export default {
             },
             smooth: true,
             type: 'line',
-            data: ua || [],
+            data: a || [],
             animationDuration: 2800,
             animationEasing: 'cubicInOut'
           },
           {
-            name: 'ub',
+            name: 'b',
             smooth: true,
             type: 'line',
             itemStyle: {
@@ -136,19 +139,19 @@ export default {
                 }
               }
             },
-            data: ub || [],
+            data: b || [],
             animationDuration: 2800,
             animationEasing: 'quadraticOut'
           },
           {
-            name: 'uc',
+            name: 'c',
             smooth: true,
             type: 'line',
             itemStyle: {
               normal: {
-                color: '#8838fa',
+                color: '#fa8838',
                 lineStyle: {
-                  color: '#8838fa',
+                  color: '#fa8838',
                   width: 2
                 },
                 areaStyle: {
@@ -156,7 +159,7 @@ export default {
                 }
               }
             },
-            data: uc || [],
+            data: c || [],
             animationDuration: 2800,
             animationEasing: 'quadraticOut'
           }
