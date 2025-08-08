@@ -39,6 +39,37 @@
       <!-- <md-progress-spinner v-if="loading" :md-diameter="30" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner> -->
     </div>
     <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item md-size-33">
+          <line-chart height="250px" :chartData="{
+            xAxisData: xAxisData,
+            legend: legendU,
+            a: lineChartData.ua,
+            b: lineChartData.ub,
+            c: lineChartData.uc
+          }" />
+        </div>
+        <div class="md-layout-item md-size-33">
+          <line-chart height="250px" :chartData="{
+            xAxisData: xAxisData,
+            legend: legendI,
+            a: lineChartData.ia,
+            b: lineChartData.ib,
+            c: lineChartData.ic
+          }" />
+        </div>
+        <div class="md-layout-item md-size-33">
+          <line-chart height="250px" :chartData="{
+            xAxisData: xAxisData,
+            legend: legendPF,
+            a: lineChartData.pfa,
+            b: lineChartData.pfb,
+            c: lineChartData.pfc
+          }" />
+        </div>
+      </div>
+    </div>
+    <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <md-table v-model="tableData" md-sort="_id" md-sort-order="asc" md-card md-fixed-header>
         <md-table-toolbar>
           <p class="md-title">{{ this.responseText }}</p>
@@ -65,28 +96,6 @@
         </md-table-row>
       </md-table>
     </div>
-    <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
-      <div class="md-layout md-gutter">
-        <div class="md-layout-item md-size-50">
-          <line-chart :chart-data="{
-            xAxisData: tableData.map(item => item._id),
-            a: lineChartData.ua,
-            b: lineChartData.ub,
-            c: lineChartData.uc,
-            legend: ['ua', 'ub', 'uc']
-          }" />
-        </div>
-        <div class="md-layout-item md-size-50">
-          <line-chart :chart-data="{
-            xAxisData: tableData.map(item => item._id),
-            a: lineChartData.ia,
-            b: lineChartData.ib,
-            c: lineChartData.ic,
-            legend: ['ua', 'ub', 'uc']
-          }" />
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -98,17 +107,6 @@ import LineChart from '@/components/Echarts/LineChart'
 // import BarChart from '@/components/Echarts/BarChart'
 // import HeatMap from '@/components/Echarts/HeatMap'
 // import Scatter from '@/components/Echarts/Scatter'
-
-const chartData = {
-  line: {
-    ua: [],
-    ub: [],
-    uc: [],
-    ia: [],
-    ib: [],
-    ic: []
-  }
-}
 
 export default {
   name: 'EcoDemo',
@@ -139,7 +137,11 @@ export default {
         const maxDate = new Date('2025-08-01')
         return date < minDate || date > maxDate
       },
-      lineChartData: {}
+      lineChartData: {},
+      xAxisData: {},
+      legendU: ['ua', 'ub', 'uc'],
+      legendI: ['ia', 'ib', 'ic'],
+      legendPF: ['pfa', 'pfb', 'pfc']
     }
   },
   methods: {
@@ -175,20 +177,27 @@ export default {
           }
 
           // 更新图表数据
-          this.lineChartData.ua = response.records.map(item => item.ua)
-          this.lineChartData.ub = response.records.map(item => item.ub)
-          this.lineChartData.uc = response.records.map(item => item.uc)
-          this.lineChartData.ia = response.records.map(item => item.ia)
-          this.lineChartData.ib = response.records.map(item => item.ib)
-          this.lineChartData.ic = response.records.map(item => item.ic)
-          console.log("ua: ", response.records.map(item => item.ua))
-          console.log("ub: ", response.records.map(item => item.ub))
-          console.log("uc: ", response.records.map(item => item.uc))
-          console.log("ia: ", response.records.map(item => item.ia))
-          console.log("ib: ", response.records.map(item => item.ib))
-          console.log("ic: ", response.records.map(item => item.ic))
+          const sss = response.records.map(item => item._id)
+          if (sss) {
+            for (let i = 0; i < sss.length; i++) {
+              const s = sss[i];
+              if (typeof s !== "string" || s.length === 0) continue;
+              const prefix = s.substring(0, 2);
+              const suffix = s.length >= 4 ? s.substring(s.length - 2) : ""
+              sss[i] = `${prefix}**${suffix}`
+            }
+            this.xAxisData = sss
+            console.log("xAxisData: ", sss)
+          }
 
-          // 保留文本显示
+          // 赋值到图表
+          const fields = ['ua', 'ub', 'uc', 'ia', 'ib', 'ic', 'pfa', 'pfb', 'pfc'];
+          fields.forEach(field => {
+            this.lineChartData[field] = response.records.map(item => item[field]);
+            console.log(`${field}: `, this.lineChartData[field])
+          });
+
+          // 显示查询结果
           this.responseText = `查询 [${response.database}] [${response.collection}] 成功，共加载 ${processedRecords.length} 条记录`
         } else {
           this.showError = true

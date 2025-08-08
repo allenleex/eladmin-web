@@ -28,9 +28,6 @@ export default {
     chartData: {
       type: Object,
       required: true
-    },
-    legend: {
-      type: Array
     }
   },
   data() {
@@ -67,14 +64,15 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
-    setOptions({ xAxisData, a, b, c } = {}) {
+    setOptions({ xAxisData, legend, a, b, c } = {}) {
       this.chart.setOption({
         xAxis: {
           data: xAxisData || [],
           boundaryGap: false,
           axisTick: {
             show: false
-          }
+          },
+          nameRotate: 45
         },
         grid: {
           left: 10,
@@ -103,11 +101,11 @@ export default {
           max: 'dataMax'
         },
         legend: {
-          data: this.legend
+          data: legend
         },
         series: [
           {
-            name: 'a',
+            name: legend[0],
             itemStyle: {
               normal: {
                 color: '#FF005A',
@@ -124,7 +122,7 @@ export default {
             animationEasing: 'cubicInOut'
           },
           {
-            name: 'b',
+            name: legend[1],
             smooth: true,
             type: 'line',
             itemStyle: {
@@ -144,7 +142,7 @@ export default {
             animationEasing: 'quadraticOut'
           },
           {
-            name: 'c',
+            name: legend[2],
             smooth: true,
             type: 'line',
             itemStyle: {
