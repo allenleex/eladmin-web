@@ -2,61 +2,40 @@
   <div class="md-container">
     <div class="md-content">
       <div class="md-layout md-gutter">
-        <div class="md-layout-item"><!-- 日期选择器 -->
-          <md-datepicker v-model="formData.date" md-immediately :md-open-on-focus="true" required>
-            <label>日期范围</label>
+        <div class="md-layout-item">
+          <md-datepicker v-model="formData.start_date" md-immediately :md-open-on-focus="true" required>
+            <label>开始日期</label>
           </md-datepicker>
         </div>
-        <div class="md-layout-item"><!-- 筛选字段 -->
+        <div class="md-layout-item">
+          <md-datepicker v-model="formData.end_date" md-immediately :md-open-on-focus="true" required>
+            <label>结束日期</label>
+          </md-datepicker>
+        </div>
+        <div class="md-layout-item">
           <md-field>
-            <label>筛选字段名</label>
-            <md-input v-model="formData.filterField" required></md-input>
+            <label>bid</label>
+            <md-input v-model="formData.bid" required></md-input>
           </md-field>
         </div>
-        <div class="md-layout-item"><!-- 筛选值 -->
+        <div class="md-layout-item">
           <md-field>
-            <label>筛选字段值</label>
-            <md-input v-model="formData.filterValue" required></md-input>
-          </md-field>
-        </div>
-        <div class="md-layout-item"><!-- 记录数量 -->
-          <md-field>
-            <label>返回记录数量</label>
-            <md-input v-model.number="formData.limit" type="number" min="1" max="1000" required></md-input>
+            <label>mid</label>
+            <md-input v-model="formData.mid" required></md-input>
           </md-field>
         </div>
       </div>
       <md-button class="md-raised md-primary" @click="handleClick">开始查询</md-button>
-      <!-- <md-progress-bar id="nprogress" v-if="loading" md-mode="indeterminate" class="md-accent" style="width:80%"></md-progress-bar> -->
-      <!-- <md-progress-spinner v-if="loading" :md-diameter="30" :md-stroke="3" md-mode="indeterminate"></md-progress-spinner> -->
     </div>
     <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <div class="md-layout md-gutter">
-        <div class="md-layout-item md-size-33">
+        <div class="md-layout-item md-size-100">
           <line-chart height="250px" :chartData="{
             xAxisData: xAxisData,
-            legend: legendU,
-            a: lineChartData.ua,
-            b: lineChartData.ub,
-            c: lineChartData.uc
-          }" />
-        </div>
-        <div class="md-layout-item md-size-33">
-          <line-chart height="250px" :chartData="{
-            xAxisData: xAxisData,
-            legend: legendI,
-            a: lineChartData.ia,
-            b: lineChartData.ib,
-            c: lineChartData.ic
-          }" />
-        </div>
-        <div class="md-layout-item md-size-33">
-          <line-chart height="250px" :chartData="{
-            xAxisData: xAxisData,
-            legend: legendPF,
-            a: lineChartData.pfa,
-            b: lineChartData.pfb,
-            c: lineChartData.pfc
+            legend: legend,
+            a: lineChartData.eppa,
+            b: lineChartData.eppb,
+            c: lineChartData.eppc
           }" />
         </div>
       </div>
@@ -69,22 +48,12 @@
         <md-table-row slot="md-table-row" slot-scope="{ item }">
           <md-table-cell md-label="_ID" md-sort-by="_id">{{ item._id }}</md-table-cell>
           <md-table-cell md-label="bid" md-sort-by="bid">{{ item.bid }}</md-table-cell>
-          <md-table-cell md-label="time" md-sort-by="time">{{ item.time }}</md-table-cell>
+          <md-table-cell md-label="date" md-sort-by="time">{{ item.date }}</md-table-cell>
           <md-table-cell md-label="mid" md-sort-by="mid">{{ item.mid }}</md-table-cell>
-          <md-table-cell md-label="ua" md-sort-by="ua">{{ item.ua }}</md-table-cell>
-          <md-table-cell md-label="ub" md-sort-by="ub">{{ item.ub }}</md-table-cell>
-          <md-table-cell md-label="uc" md-sort-by="uc">{{ item.uc }}</md-table-cell>
-          <md-table-cell md-label="ia" md-sort-by="ia">{{ item.ia }}</md-table-cell>
-          <md-table-cell md-label="ib" md-sort-by="ib">{{ item.ib }}</md-table-cell>
-          <md-table-cell md-label="ic" md-sort-by="ic">{{ item.ic }}</md-table-cell>
-          <md-table-cell md-label="f" md-sort-by="f">{{ item.f }}</md-table-cell>
-          <md-table-cell md-label="pfa" md-sort-by="pfa">{{ item.pfa }}</md-table-cell>
-          <md-table-cell md-label="pfb" md-sort-by="pfb">{{ item.pfb }}</md-table-cell>
-          <md-table-cell md-label="pfc" md-sort-by="pfc">{{ item.pfc }}</md-table-cell>
-          <md-table-cell md-label="pfs" md-sort-by="pfs">{{ item.pfs }}</md-table-cell>
           <md-table-cell md-label="eppa" md-sort-by="eppa">{{ item.eppa }}</md-table-cell>
           <md-table-cell md-label="eppb" md-sort-by="eppb">{{ item.eppb }}</md-table-cell>
           <md-table-cell md-label="eppc" md-sort-by="eppc">{{ item.eppc }}</md-table-cell>
+          <md-table-cell md-label="epps" md-sort-by="epps">{{ item.eppc }}</md-table-cell>
         </md-table-row>
       </md-table>
     </div>
@@ -92,7 +61,7 @@
 </template>
 
 <script>
-import { test } from '@/api/eco/demo'
+import { energy_daily } from '@/api/eco/demo'
 import LineChart from '@/components/Echarts/LineChart'
 // import RadarChart from '@/components/Echarts/RadarChart'
 // import PieChart from '@/components/Echarts/PieChart'
@@ -101,7 +70,7 @@ import LineChart from '@/components/Echarts/LineChart'
 // import Scatter from '@/components/Echarts/Scatter'
 
 export default {
-  name: 'EcoDemo',
+  name: 'EcoEnergyDaily',
   components: {
     LineChart
   },
@@ -117,22 +86,14 @@ export default {
       pageSize: 10,
       allData: [], // 存储所有查询结果
       formData: {
-        date: '2025-07-01', // 默认日期
-        filterField: 'bid',
-        filterValue: '221',
-        limit: 10
-      },
-      disabledDates: date => {
-        // 限制日期范围：2025-07-01 至 2025-08-01
-        const minDate = new Date('2025-07-01')
-        const maxDate = new Date('2025-08-01')
-        return date < minDate || date > maxDate
+        start_date: '2025-07-01', // 默认日期
+        end_date: '2025-07-31', // 默认日期
+        bid: '221',
+        mid: '1'
       },
       lineChartData: {},
       xAxisData: {},
-      legendU: ['ua', 'ub', 'uc'],
-      legendI: ['ia', 'ib', 'ic'],
-      legendPF: ['pfa', 'pfb', 'pfc']
+      legend: ['eppa', 'eppb', 'eppc']
     }
   },
   methods: {
@@ -143,15 +104,15 @@ export default {
 
       try {
         const params = {
-          collectionName: this.formData.date.replace(/-/g, ''),           // 转换后格式
-          filterField: this.formData.filterField,
-          filterValue: this.formData.filterValue,
-          limit: this.formData.limit
+          bid: this.formData.bid,
+          mid: this.formData.mid,
+          start_date: this.formData.start_date.replace(/-/g, ''),
+          end_date: this.formData.end_date.replace(/-/g, '')
         };
         console.log('params:', params)
 
-        // 调用api
-        const response = await test(params)
+        // 调用api energy_daily
+        const response = await energy_daily(params)
         console.log('response:', response)
 
         if (response && response.records && response.records.length > 0) {
@@ -160,6 +121,7 @@ export default {
 
           // 设置表格数据
           this.tableData = processedRecords
+          console.log('this.tableData:', this.tableData)
 
           // 动态生成表头
           if (processedRecords.length > 0) {
@@ -167,21 +129,20 @@ export default {
           }
 
           // 更新图表数据
-          const sss = response.records.map(item => item._id)
+          const sss = processedRecords.map(item => item.date)
           if (sss) {
             for (let i = 0; i < sss.length; i++) {
               const s = sss[i];
               if (typeof s !== "string" || s.length === 0) continue;
-              const prefix = s.substring(0, 2);
-              const suffix = s.length >= 4 ? s.substring(s.length - 2) : ""
-              sss[i] = `${prefix}**${suffix}`
+              const suffix = s.length >= 4 ? s.substring(s.length - 4) : ""
+              sss[i] = `${suffix}`
             }
             this.xAxisData = sss
-            console.log("xAxisData: ", sss)
+            console.log("xAxisData: ", this.xAxisData)
           }
 
           // 赋值到图表
-          const fields = ['ua', 'ub', 'uc', 'ia', 'ib', 'ic', 'pfa', 'pfb', 'pfc'];
+          const fields = ['eppa', 'eppb', 'eppc', 'epps'];
           fields.forEach(field => {
             this.lineChartData[field] = response.records.map(item => item[field]);
             console.log(`${field}: `, this.lineChartData[field])
@@ -193,6 +154,7 @@ export default {
           this.showError = true
           this.errorMessage = '未获取到数据'
         }
+
       } catch (error) {
         console.error('API请求失败:', error)
         this.showError = true
@@ -200,6 +162,7 @@ export default {
       } finally {
         this.loading = false
       }
+
     }
 
   }
