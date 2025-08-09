@@ -13,17 +13,30 @@
           <line-chart ref="chart3" type="area" style="width: 100%; height: 400px;" :xAxis="xAxis1" :series="series1" />
         </div>
       </div>
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item">
+          <bar-chart ref="chart4" style="width: 100%; height: 400px;" :xAxis="xAxis1" :series="series1" />
+        </div>
+        <div class="md-layout-item">
+          <bar-chart ref="chart5" type="horizontal" style="width: 100%; height: 400px;" :xAxis="xAxis1" :series="series1" />
+        </div>
+        <div class="md-layout-item">
+          <bar-chart ref="chart6" type="stacked" style="width: 100%; height: 400px;" :xAxis="xAxis1" :series="series1" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import LineChart from "@/components/ECOCharts/LineChart"
+import BarChart from "@/components/ECOCharts/BarChart"
+import HeatmapChart from "@/components/ECOCharts/HeatmapChart"
 
 export default {
   name: "ECOCharts",
   components: {
-    LineChart
+    LineChart, BarChart, HeatmapChart
   },
   data() {
     return {
