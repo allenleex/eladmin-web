@@ -29,14 +29,19 @@
     </div>
     <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <div class="md-layout md-gutter">
-        <div class="md-layout-item md-size-100">
-          <line-chart height="250px" :chartData="{
-            xAxisData: xAxisData,
-            legend: legend,
-            a: lineChartData.eppa,
-            b: lineChartData.eppb,
-            c: lineChartData.eppc
-          }" />
+        <div class="md-layout-item md-size-50">
+          <line-chart ref="chart1" type="" :xAxis="xAxis" :series="seriesLine" />
+        </div>
+        <div class="md-layout-item md-size-50">
+          <line-chart ref="chart2" type="area" :xAxis="xAxis" :series="seriesLine" />
+        </div>
+      </div>
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item md-size-50">
+          <bar-chart ref="chart3" type="" :xAxis="xAxis" :series="seriesBar" />
+        </div>
+        <div class="md-layout-item md-size-50">
+          <bar-chart ref="chart4" type="stacked" :xAxis="xAxis" :series="seriesBar" />
         </div>
       </div>
     </div>
@@ -46,14 +51,18 @@
           <p class="md-title">{{ this.responseText }}</p>
         </md-table-toolbar>
         <md-table-row slot="md-table-row" slot-scope="{ item }">
-          <md-table-cell md-label="_ID" md-sort-by="_id">{{ item._id }}</md-table-cell>
+          <!-- <md-table-cell md-label="_ID" md-sort-by="_id">{{ item._id }}</md-table-cell> -->
           <md-table-cell md-label="bid" md-sort-by="bid">{{ item.bid }}</md-table-cell>
           <md-table-cell md-label="date" md-sort-by="time">{{ item.date }}</md-table-cell>
           <md-table-cell md-label="mid" md-sort-by="mid">{{ item.mid }}</md-table-cell>
           <md-table-cell md-label="eppa" md-sort-by="eppa">{{ item.eppa }}</md-table-cell>
           <md-table-cell md-label="eppb" md-sort-by="eppb">{{ item.eppb }}</md-table-cell>
           <md-table-cell md-label="eppc" md-sort-by="eppc">{{ item.eppc }}</md-table-cell>
-          <md-table-cell md-label="epps" md-sort-by="epps">{{ item.eppc }}</md-table-cell>
+          <md-table-cell md-label="epps" md-sort-by="epps">{{ item.epps }}</md-table-cell>
+          <md-table-cell md-label="a" md-sort-by="a">{{ item.a }}</md-table-cell>
+          <md-table-cell md-label="b" md-sort-by="b">{{ item.b }}</md-table-cell>
+          <md-table-cell md-label="c" md-sort-by="c">{{ item.c }}</md-table-cell>
+          <md-table-cell md-label="s" md-sort-by="s">{{ item.s }}</md-table-cell>
         </md-table-row>
       </md-table>
     </div>
@@ -62,17 +71,13 @@
 
 <script>
 import { energy_daily } from '@/api/eco/demo'
-import LineChart from '@/components/Echarts/LineChart'
-// import RadarChart from '@/components/Echarts/RadarChart'
-// import PieChart from '@/components/Echarts/PieChart'
-// import BarChart from '@/components/Echarts/BarChart'
-// import HeatMap from '@/components/Echarts/HeatMap'
-// import Scatter from '@/components/Echarts/Scatter'
+import LineChart from "@/components/ECOCharts/LineChart"
+import BarChart from "@/components/ECOCharts/BarChart"
 
 export default {
   name: 'EcoEnergyDaily',
   components: {
-    LineChart
+    LineChart, BarChart
   },
   data() {
     return {
@@ -91,9 +96,9 @@ export default {
         bid: '221',
         mid: '1'
       },
-      lineChartData: {},
-      xAxisData: {},
-      legend: ['eppa', 'eppb', 'eppc']
+      xAxis: {},
+      seriesLine: [],
+      seriesBar: []
     }
   },
   methods: {
@@ -137,15 +142,28 @@ export default {
               const suffix = s.length >= 4 ? s.substring(s.length - 4) : ""
               sss[i] = `${suffix}`
             }
-            this.xAxisData = sss
-            console.log("xAxisData: ", this.xAxisData)
+            this.xAxis = sss
+            console.log("xAxis: ", this.xAxis)
           }
 
           // 赋值到图表
-          const fields = ['eppa', 'eppb', 'eppc', 'epps'];
-          fields.forEach(field => {
-            this.lineChartData[field] = response.records.map(item => item[field]);
-            console.log(`${field}: `, this.lineChartData[field])
+          this.seriesLine = [] // 一定要清空数组
+          this.seriesBar = [] // 一定要清空数组
+          const fieldsLine = ['eppa', 'eppb', 'eppc', 'epps'];
+          fieldsLine.forEach(field => {
+            this.seriesLine.push({
+              name: field,
+              data: processedRecords.map(item => item[field])
+            });
+            console.log(`${field}: `, processedRecords.map(item => item[field]))
+          });
+          const fieldsBar = ['a', 'b', 'c', 's'];
+          fieldsBar.forEach(field => {
+            this.seriesBar.push({
+              name: field,
+              data: processedRecords.map(item => item[field])
+            });
+            console.log(`${field}: `, processedRecords.map(item => item[field]))
           });
 
           // 显示查询结果

@@ -64,7 +64,7 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
-    setOptions({ xAxisData, legend, a, b, c } = {}) {
+    setOptions({ xAxisData, legend, series } = {}) {
       this.chart.setOption({
         xAxis: {
           data: xAxisData || [],
@@ -97,71 +97,75 @@ export default {
           axisTick: {
             show: false
           },
+          axisLabel: {
+            formatter: '{value:.2f}' // 保留2位小数（如显示为 1.00, 2.50）
+          },
           min: 'dataMin',
           max: 'dataMax'
         },
         legend: {
           data: legend
         },
-        series: [
-          {
-            name: legend[0],
-            itemStyle: {
-              normal: {
-                color: '#FF005A',
-                lineStyle: {
-                  color: '#FF005A',
-                  width: 2
-                }
-              }
-            },
-            smooth: true,
-            type: 'line',
-            data: a || [],
-            animationDuration: 2800,
-            animationEasing: 'cubicInOut'
-          },
-          {
-            name: legend[1],
-            smooth: true,
-            type: 'line',
-            itemStyle: {
-              normal: {
-                color: '#3888fa',
-                lineStyle: {
-                  color: '#3888fa',
-                  width: 2
-                },
-                areaStyle: {
-                  color: '#f3f8ff'
-                }
-              }
-            },
-            data: b || [],
-            animationDuration: 2800,
-            animationEasing: 'quadraticOut'
-          },
-          {
-            name: legend[2],
-            smooth: true,
-            type: 'line',
-            itemStyle: {
-              normal: {
-                color: '#fa8838',
-                lineStyle: {
-                  color: '#fa8838',
-                  width: 2
-                },
-                areaStyle: {
-                  color: '#f3f8ff'
-                }
-              }
-            },
-            data: c || [],
-            animationDuration: 2800,
-            animationEasing: 'quadraticOut'
-          }
-        ]
+        series: series
+        // series: [
+        //   {
+        //     name: legend[0],
+        //     itemStyle: {
+        //       normal: {
+        //         color: '#FF005A',
+        //         lineStyle: {
+        //           color: '#FF005A',
+        //           width: 2
+        //         }
+        //       }
+        //     },
+        //     smooth: true,
+        //     type: 'line',
+        //     data: a || [],
+        //     animationDuration: 2800,
+        //     animationEasing: 'cubicInOut'
+        //   },
+        //   {
+        //     name: legend[1],
+        //     smooth: true,
+        //     type: 'line',
+        //     itemStyle: {
+        //       normal: {
+        //         color: '#3888fa',
+        //         lineStyle: {
+        //           color: '#3888fa',
+        //           width: 2
+        //         },
+        //         areaStyle: {
+        //           color: '#f3f8ff'
+        //         }
+        //       }
+        //     },
+        //     data: b || [],
+        //     animationDuration: 2800,
+        //     animationEasing: 'quadraticOut'
+        //   },
+        //   {
+        //     name: legend[2],
+        //     smooth: true,
+        //     type: 'line',
+        //     itemStyle: {
+        //       normal: {
+        //         color: '#fa8838',
+        //         lineStyle: {
+        //           color: '#fa8838',
+        //           width: 2
+        //         },
+        //         areaStyle: {
+        //           color: '#f3f8ff'
+        //         }
+        //       }
+        //     },
+        //     data: c || [],
+        //     animationDuration: 2800,
+        //     animationEasing: 'quadraticOut'
+        //   }
+        // ]
       })
     }
   }
