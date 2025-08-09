@@ -20,4 +20,14 @@ export function energy_daily(params) {
   })
 }
 
-export default { test, energy_daily }
+// 指定bid/mid/start_date/end_date，每小时的用电量
+export function energy_hourly(params) {
+  console.log('api function energy_hourly():', params)
+  return request({
+    url: 'api/eco/energy/hourly',
+    method: 'get',
+    params: params // 关键：GET 请求使用 params 传递
+  })
+}
+
+export default { test, energy_daily, energy_hourly }
