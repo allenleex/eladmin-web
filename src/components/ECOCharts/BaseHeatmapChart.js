@@ -6,7 +6,7 @@ export class BaseHeatmapChart {
     this.domRef = domRef;
     this.data = data; // 结构: { xAxis: [], yAxis: [], data: [[x,y,value]] }
     this.defaultOptions = {
-      grid: { top: 50, right: 30, bottom: 80, left: 80 },
+      grid: { top: '10%', right: 30, bottom: '25%', left: 80 },
       xAxis: {
         type: "category",
         splitArea: {
@@ -21,7 +21,7 @@ export class BaseHeatmapChart {
       },
       visualMap: {
         min: 0,
-        max: 100,
+        max: 10,
         calculable: true,
         orient: "horizontal",
         left: "center",
