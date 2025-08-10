@@ -30,4 +30,14 @@ export function energy_hourly(params) {
   })
 }
 
-export default { test, energy_daily, energy_hourly }
+// 指定bid/mid/date，当天天的电流变化
+export function ammeter_daily(params) {
+  console.log('api function ammeter_daily():', params)
+  return request({
+    url: 'api/eco/ammeter/daily',
+    method: 'get',
+    params: params // 关键：GET 请求使用 params 传递
+  })
+}
+
+export default { test, energy_daily, energy_hourly, ammeter_daily }

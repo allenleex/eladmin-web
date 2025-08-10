@@ -44,7 +44,7 @@
           <bar-chart ref="chart4" type="stacked" :xAxis="xAxis" :series="seriesBar" />
         </div>
       </div>
-      <div class="md-layout md-gutter">
+      <!-- <div class="md-layout md-gutter">
         <div class="md-layout-item md-size-100">
           <heatmap-chart ref="chart5" :yAxis="[
             'Saturday', 'Friday', 'Thursday',
@@ -56,7 +56,7 @@
             '6p', '7p', '8p', '9p', '10p', '11p'
           ]" :data="seriesHeatmap" style="width: 100%; height: 400px;" />
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <md-table v-model="tableData" md-sort="_id" md-sort-order="asc" md-card md-fixed-header>
