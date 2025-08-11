@@ -24,11 +24,8 @@
     </div>
     <div class="md-content" v-if="tableData.length > 0" style="margin: 0px 10px;">
       <div class="md-layout md-gutter">
-        <div class="md-layout-item md-size-50">
-          <line-chart ref="chart1" type="" :xAxis="xAxis" :series="seriesLine" />
-        </div>
-        <div class="md-layout-item md-size-50">
-          <line-chart ref="chart2" type="area" :xAxis="xAxis" :series="seriesLine" />
+        <div class="md-layout-item md-size-100">
+          <ammeter-line-chart :date="formData.date.replace(/-/g, '')" :bid="formData.bid" />
         </div>
       </div>
     </div>
@@ -54,12 +51,12 @@
 
 <script>
 import { ammeter_daily } from '@/api/eco/demo'
-import LineChart from "@/components/ECOCharts/LineChart"
+import AmmeterLineChart from "@/components/ECOCharts/AmmeterLineChart"
 
 export default {
   name: 'EcoAmmeterDaily',
   components: {
-    LineChart
+    AmmeterLineChart
   },
   data() {
     return {
@@ -76,12 +73,7 @@ export default {
         date: '2025-07-01', // 默认日期
         bid: '221',
         mid: '1'
-      },
-      xAxis: {},
-      yAxis: {},
-      seriesLine: [],
-      seriesBar: [],
-      seriesHeatmap: []
+      }
     }
   },
   methods: {
@@ -114,21 +106,6 @@ export default {
           if (processedRecords.length > 0) {
             this.tableHeaders = Object.keys(processedRecords[0])
           }
-
-          // 更新图表数据
-          this.xAxis = processedRecords.map(item => item.hour)
-
-          // 赋值到图表
-          // 折线图
-          this.seriesLine = [] // 一定要清空数组
-          const fieldsLine = ['ia', 'ib', 'ic'];
-          fieldsLine.forEach(field => {
-            this.seriesLine.push({
-              name: field,
-              data: processedRecords.map(item => item[field])
-            });
-            console.log(`${field}: `, processedRecords.map(item => item[field]))
-          });
 
           // 显示查询结果
           this.responseText = `查询 [${response.database}] [${response.collection}] 成功，共加载 ${processedRecords.length} 条记录`
